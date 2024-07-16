@@ -8,7 +8,7 @@ This project uses React.js with NextJS for the frontend, Express.js for the back
 
 Runs the app in the development mode.
 
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser. For API, you can access it in [http://localhost:8000/api](http://localhost:8000/api). The app will reload if you make edits.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. For API, you can access it in [http://localhost:8000/api](http://localhost:8000/api). The app will reload if you make edits.
 
 ### `npm run build`
 
@@ -30,10 +30,25 @@ Example : `npm run seqeulize --workspace=api -- --db:migrate`
 
 # Rules
 
+## Branch Name
+- Branch names should be concise, descriptive, and use hyphens to separate words. They should also include the name of the person working on the branch.
+- Example: feature/john-prisma
+
 ## Commit & Pull Request
 
 - Always use [conventional commit message](https://www.conventionalcommits.org/en/v1.0.0/) when committing changes or creating pull request
 - **"Squash and Merge"** your pull request to main branch
+- example "feat(prisma): added seeding "
+
+## Commit Message Structure
+- feat: A new feature for the user, not a new feature for build script.
+- fix: A bug fix for the user, not a fix to a build script.
+- docs: Documentation only changes.
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).
+- refactor: A code change that neither fixes a bug nor adds a feature.
+- perf: A code change that improves performance.
+- test: Adding missing tests or correcting existing tests.
+- chore: Changes to the build process or auxiliary tools and libraries such as documentation generation.
 
 ## Naming Convention
 

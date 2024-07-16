@@ -9,7 +9,6 @@ import express, {
 } from 'express';
 import cors from 'cors';
 import { PORT } from './config';
-import { SampleRouter } from './routers/sample.router';
 
 export default class App {
   private app: Express;
@@ -28,7 +27,7 @@ export default class App {
   }
 
   private handleError(): void {
-    // not found
+    // not found handler
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       if (req.path.includes('/api/')) {
         res.status(404).send('Not found !');
@@ -37,7 +36,7 @@ export default class App {
       }
     });
 
-    // error
+    // error handler
     this.app.use(
       (err: Error, req: Request, res: Response, next: NextFunction) => {
         if (req.path.includes('/api/')) {
@@ -51,18 +50,14 @@ export default class App {
   }
 
   private routes(): void {
-    const sampleRouter = new SampleRouter();
-
     this.app.get('/api', (req: Request, res: Response) => {
       res.send(`Hello, Purwadhika Student API!`);
     });
-
-    this.app.use('/api/samples', sampleRouter.getRouter());
   }
 
   public start(): void {
     this.app.listen(PORT, () => {
-      console.log(`  ➜  [API] Local:   http://localhost:${PORT}/`);
+      console.log(` API SERVER ⚡ ➜ [API] Local: http://localhost:${PORT}/`)
     });
   }
 }
