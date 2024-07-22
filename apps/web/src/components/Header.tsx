@@ -8,7 +8,7 @@ import { FaRegListAlt } from "react-icons/fa";
 export const Header = () => {
   return (
     <>
-      <div className="bg-white w-full h-full text-red sticky top-0 flex items-center justify-between lg:px-10 px-[10px] border-b border-black py-[10px]">
+      <div className="navbar bg-white w-full h-full text-red sticky top-0 flex items-center justify-between lg:px-10 px-[10px] border-b border-black py-[10px]">
         <div>
           <Image 
             src="/images/logo_sp.png"
