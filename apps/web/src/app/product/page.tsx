@@ -5,7 +5,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 export default function ProductPage(){
     return(
         <>
-            <div className="bg-blue-400 w-full h-full flex justify-between px-[300px] py-[20px]">
+            <div className="bg-blue-500 w-full h-full flex justify-between px-[300px] py-[20px]">
                 <div className="text-white font-bold text-[30px]">
                     "WRESTLE PETER PAN 2024 7/21"
                 </div>
@@ -276,13 +276,12 @@ export default function ProductPage(){
                                     </div>
                                 </div>
                                 <div className="pt-[20px]">
-                                    The events was amazing.
+                                    The event was amazing.
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
