@@ -15,7 +15,7 @@ const hashPassword = async (password) => {
   }
 };
 
-// Random Birth Date Generator 
+// Random Birth Date Generator
 const randomBirthDate = () => {
   const start = new Date(1980, 0, 1);
   const end = new Date(2024, 11, 31);
@@ -35,10 +35,11 @@ const getOrganizerId = async (index) => {
       },
     });
 
+
     if (index < 0 || index >= users.length) {
       throw new Error('Index out of bounds');
     }
-    return users[index].id;
+    return users[index].uid;
   } catch (error) {
     console.error('Error fetching organizer ID:', error.message);
     throw error;
@@ -320,7 +321,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_PREMIUM_FIRST_DAY',
@@ -331,7 +332,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_REGULAR_SECOND_DAY',
@@ -342,7 +343,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_PREMIUM_SECOND_DAY',
@@ -353,7 +354,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'TV_ASAHI_ONE_DAY_TICKET_SATURDAY',
@@ -364,7 +365,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
   {
     name: 'TV_ASAHI_ONE_DAY_TICKET_SUNDAY',
@@ -375,7 +376,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
   {
     name: 'TV_ASAHI_TWO_DAY_TICKET_SATURDAY_SUNDAY',
@@ -386,7 +387,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
 ];
 
@@ -516,7 +517,7 @@ async function main() {
   // Insert Organizers
   if (organizerCount === 0 && userCount > 0) {
     try {
-      const organizers = createOrganizersArray();
+      const organizers = await createOrganizersArray();
       for (const item of organizers) {
         await prisma.organizer.create({
           data: item,
