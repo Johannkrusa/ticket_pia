@@ -1,63 +1,45 @@
-import express, {
-  json,
-  urlencoded,
-  Express,
-  Request,
-  Response,
-  NextFunction,
-  Router,
-} from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { PORT } from './config';
+import router from './routers';
 
 export default class App {
   private app: Express;
+  private port: number;
 
   constructor() {
     this.app = express();
-    this.configure();
-    this.routes();
-    this.handleError();
+    this.port = parseInt(process.env.PORT || '8000', 10);
+
+    this.configureMiddleware();
+    this.configureRoutes();
+    this.configureErrorHandling();
   }
 
-  private configure(): void {
+  private configureMiddleware() {
     this.app.use(cors());
-    this.app.use(json());
-    this.app.use(urlencoded({ extended: true }));
+    this.app.use(express.json());
   }
 
-  private handleError(): void {
-    // not found handler
-    this.app.use((req: Request, res: Response, next: NextFunction) => {
-      if (req.path.includes('/api/')) {
-        res.status(404).send('Not found !');
-      } else {
-        next();
-      }
-    });
-
-    // error handler
-    this.app.use(
-      (err: Error, req: Request, res: Response, next: NextFunction) => {
-        if (req.path.includes('/api/')) {
-          console.error('Error : ', err.stack);
-          res.status(500).send('Error !');
-        } else {
-          next();
-        }
-      },
-    );
-  }
-
-  private routes(): void {
-    this.app.get('/api', (req: Request, res: Response) => {
-      res.send(`Hello, Purwadhika Student API!`);
+  private configureRoutes() {
+    this.app.use(router);
+    this.app.get('/', (req: Request, res: Response) => {
+      res.send('App.get is in working condition');
     });
   }
 
-  public start(): void {
-    this.app.listen(PORT, () => {
-      console.log(` API SERVER ⚡ ➜ [API] Local: http://localhost:${PORT}/`)
+  private configureErrorHandling() {
+    this.app.use((error: any, req: Request, res: Response, next: NextFunction) => {
+      res.status(error.status || 500).send({
+        error: true, 
+        message: error.message || 'Something Went Wrong!', 
+        data: {}
+      });
+    });
+  }
+
+  public start() {
+    this.app.listen(this.port, () => {
+      console.log(`Server⚡: API Server is running on http://localhost:${this.port}`);
     });
   }
 }

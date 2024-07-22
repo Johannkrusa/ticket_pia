@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-.navBar{
+.navbar {
     z-index: 1000;
 }
+
+.custom-error-message {
+    position: relative; 
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-error-message::after {
+    content: "";
+    position: absolute; 
+    top: 150%; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: red transparent transparent transparent;
+}
+
+.custom-error-message:hover {
+    cursor: pointer;
+}
+
+.ticket-gradient-blue{
+    gradient
+} 
+
+ 

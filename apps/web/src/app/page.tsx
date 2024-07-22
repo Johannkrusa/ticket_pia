@@ -1,12 +1,19 @@
+'use client'
+
 import Image from 'next/image'
 import styles from './page.module.css'
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+  const auth = useSelector((state: any) => state.auth);
+
+  console.log(auth)
+  
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
+          {/* Get started by editing&nbsp; {first_name, last_name} */}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>

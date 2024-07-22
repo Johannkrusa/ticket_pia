@@ -13,8 +13,8 @@ export const Header = () => {
           If you're a Platinum user, log in to get your Platinum Pass 
         </div>
       </div>
-
       <div className="navBar bg-white w-full h-full text-red sticky top-0 flex items-center justify-between lg:px-10 px-[10px] shadow py-[10px]">
+
         <div>
           <Image 
             src="/images/logo_sp.png"
