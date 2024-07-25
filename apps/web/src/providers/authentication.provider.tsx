@@ -31,9 +31,8 @@ const AuthProvider: FC<Props> = ({ children }) => {
       dispatch(setAuth(response.data.data));
     },
     onError: (error) => {
-      toast.error('Oops something went wrong!');
-      console.log(error);
-    },
+      console.log('Failed to fetch token for keep login')
+     },
   });
 
   useEffect(() => {

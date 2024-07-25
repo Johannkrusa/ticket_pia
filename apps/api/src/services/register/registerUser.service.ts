@@ -1,5 +1,5 @@
 import { prisma } from '@/connections/prisma.connections';
-import { IRegisterUser } from './types';
+import { IRegisterUser } from '../../types/types';
 import { formatUserData } from '@/helpers/formatData.helper';
 import { createReferralCode } from '@/helpers/createReferalCode.helper';
 

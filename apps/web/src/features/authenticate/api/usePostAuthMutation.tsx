@@ -29,7 +29,7 @@ export const usePostAuthLogin = () => {
         localStorage.setItem('tkn', response.data.data.token);
       }
 
-      router.push('/');
+      router.push('/home');
     },
     onError: (error: any) => {
       const errorMessage =

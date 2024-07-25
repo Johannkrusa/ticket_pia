@@ -54,8 +54,8 @@ export default function CreateEventPage() {
   const initialValues = {
     event_name: '',
     event_details: '',
-    genre_id: 0,
-    region_id: 0,
+    genre_id: 1,
+    region_id: 1,
     venue_name: '',
     city_name: '',
     street_address: '',
@@ -103,82 +103,60 @@ export default function CreateEventPage() {
           associated with the organizer account will serve as the primary
           contact for event-related communications.
         </p>
-
         <Formik
           initialValues={initialValues}
           validationSchema={createEventSchema}
           onSubmit={(values) => {
-            const formData = new FormData();
-            formData.append('event_name', values.event_name);
-            formData.append('event_details', values.event_details);
-            formData.append('genre_id', values.genre_id.toString());
-            formData.append('region_id', values.region_id.toString());
-            formData.append('venue_name', values.venue_name);
-            formData.append('city_name', values.city_name);
-            formData.append('street_address', values.street_address);
+            const fd = new FormData();
+            fd.append('event_name', values.event_name);
+            fd.append('event_details', values.event_details);
+            fd.append('genre_id', values.genre_id.toString());
+            fd.append('region_id', values.region_id.toString());
+            fd.append('venue_name', values.venue_name);
+            fd.append('city_name', values.city_name);
+            fd.append('street_address', values.street_address);
 
             values.schedules.forEach((schedule, index) => {
-              formData.append(
-                `schedules[${index}][start_date]`,
-                schedule.start_date,
-              );
-              formData.append(
-                `schedules[${index}][start_time]`,
-                schedule.start_time,
-              );
-              formData.append(
-                `schedules[${index}][end_date]`,
-                schedule.end_date,
-              );
-              formData.append(
-                `schedules[${index}][end_time]`,
-                schedule.end_time,
-              );
+              fd.append(`schedules[${index}][start_date]`, schedule.start_date);
+              fd.append(`schedules[${index}][start_time]`, schedule.start_time);
+              fd.append(`schedules[${index}][end_date]`, schedule.end_date);
+              fd.append(`schedules[${index}][end_time]`, schedule.end_time);
             });
 
             values.tickets.forEach((ticket, index) => {
-              formData.append(
-                `tickets[${index}][ticket_name]`,
-                ticket.ticket_name,
-              );
-              formData.append(
+              fd.append(`tickets[${index}][ticket_name]`, ticket.ticket_name);
+              fd.append(
                 `tickets[${index}][ticket_details]`,
                 ticket.ticket_details,
               );
-              formData.append(
+              fd.append(
                 `tickets[${index}][ticket_price]`,
                 ticket.ticket_price.toString(),
               );
-              formData.append(
+              fd.append(
                 `tickets[${index}][ticket_qty]`,
                 ticket.ticket_qty.toString(),
               );
+
               ticket.schedule_indices.forEach((scheduleIndex, i) => {
-                formData.append(
+                fd.append(
                   `tickets[${index}][schedule_indices][${i}]`,
                   scheduleIndex.toString(),
                 );
               });
-              if (values.event_main_picture) {
-                formData.append(
-                  'event_main_picture',
-                  values.event_main_picture,
-                );
-              }
-
-              if (values.event_other_pictures.length > 0) {
-                values.event_other_pictures.forEach((file, index) => {
-                  formData.append(`event_other_pictures[${index}]`, file);
-                });
-              }
-
-              formData.append(
-                'terms_checkbox',
-                values.terms_checkbox.toString(),
-              );
-
-              mutationCreateEvent({formData});
             });
+
+            if (values.event_main_picture) {
+              fd.append('event_main_picture', values.event_main_picture);
+            }
+
+            if (values.event_other_pictures.length > 0) {
+              values.event_other_pictures.forEach((file, index) => {
+                fd.append(`event_other_pictures[${index}]`, file);
+              });
+            }
+
+            mutationCreateEvent({ fd });
           }}
         >
           {({ setFieldValue, values, isValid }) => {

@@ -1,10 +1,8 @@
 import { PRIVATE_KEY } from '@/config';
+import { IRequest } from '@/types/types';
 import { NextFunction, Request, Response } from 'express';
 import jwt, { JsonWebTokenError } from 'jsonwebtoken';
 
-interface IRequest extends Request {
-  payload?: any;
-}
 
 export const verifyToken = (
   req: IRequest,

@@ -78,7 +78,7 @@ export const formatUserData = async (
   }
 };
 
-export const formatToCamelCase = (input?: string): string | undefined=> {
+export const formatToCamelCase = (input?: string)=> {
   if (!input) {
     return ''; // or return a default value if needed
   }
@@ -104,4 +104,11 @@ export const bytesToMega = (bytes?: any): any | undefined => {
   }
 
   return bytes / (1024 * 1024);
+};
+
+export const convertUnderscoreToSpace = (text?: string): any | undefined => {
+  if(text === undefined){
+    return undefined
+  }
+  return text.replace(/_/g, ' ');
 };

@@ -15,7 +15,7 @@ const hashPassword = async (password) => {
   }
 };
 
-// Random Birth Date Generator 
+// Random Birth Date Generator
 const randomBirthDate = () => {
   const start = new Date(1980, 0, 1);
   const end = new Date(2024, 11, 31);
@@ -33,12 +33,16 @@ const getOrganizerId = async (index) => {
       where: {
         verified: true,
       },
+      select: {
+        uid: true,
+      },
     });
 
     if (index < 0 || index >= users.length) {
       throw new Error('Index out of bounds');
     }
-    return users[index].id;
+
+    return users[index].uid;
   } catch (error) {
     console.error('Error fetching organizer ID:', error.message);
     throw error;
@@ -46,7 +50,119 @@ const getOrganizerId = async (index) => {
 };
 
 const users = [
-  // EVENT ORGANIZER
+  // Organizer with existing Events
+  {
+    firstName: 'EMILY',
+    lastName: 'JOHNSON',
+    email: 'emily.johnson@example.com',
+    password: 'emilyjohnson123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'FEMALE',
+    phoneNumber: '08012345601',
+  },
+  {
+    firstName: 'JAMES',
+    lastName: 'WILLIAMS',
+    email: 'james.williams@example.com',
+    password: 'jameswilliams123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'MALE',
+    phoneNumber: '08012345602',
+  },
+  {
+    firstName: 'OLIVIA',
+    lastName: 'BROWN',
+    email: 'olivia.brown@example.com',
+    password: 'oliviabrown123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'FEMALE',
+    phoneNumber: '08012345603',
+  },
+  {
+    firstName: 'MICHAEL',
+    lastName: 'DAVIS',
+    email: 'michael.davis@example.com',
+    password: 'michaeldavis123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'MALE',
+    phoneNumber: '08012345604',
+  },
+  {
+    firstName: 'ISABELLA',
+    lastName: 'MARTINEZ',
+    email: 'isabella.martinez@example.com',
+    password: 'isabellamartinez123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'FEMALE',
+    phoneNumber: '08012345605',
+  },
+  {
+    firstName: 'AVA',
+    lastName: 'GARCIA',
+    email: 'ava.garcia@example.com',
+    password: 'avagarcia123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'FEMALE',
+    phoneNumber: '08012345606',
+  },
+  {
+    firstName: 'BENJAMIN',
+    lastName: 'MILLER',
+    email: 'benjamin.miller@example.com',
+    password: 'benjaminmiller123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'MALE',
+    phoneNumber: '08012345607',
+  },
+  {
+    firstName: 'SOPHIA',
+    lastName: 'MOORE',
+    email: 'sophia.moore@example.com',
+    password: 'sophiamoore123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'FEMALE',
+    phoneNumber: '08012345608',
+  },
+  {
+    firstName: 'LUCAS',
+    lastName: 'TAYLOR',
+    email: 'lucas.taylor@example.com',
+    password: 'lucastaylor123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'MALE',
+    phoneNumber: '08012345609',
+  },
+  {
+    firstName: 'LUCAS',
+    lastName: 'TAYLOR',
+    email: 'lucas.taylor@example.com',
+    password: 'lucastaylor123',
+    roleId: 1,
+    verified: true,
+    birthDate: new Date(randomBirthDate()),
+    gender: 'MALE',
+    phoneNumber: '08012345610',
+  },
+
+  // Organizer
   {
     firstName: 'TOM',
     lastName: 'RUIZ',
@@ -56,6 +172,7 @@ const users = [
     verified: true,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345611',
   },
   {
     firstName: 'HARPER',
@@ -66,6 +183,7 @@ const users = [
     verified: true,
     birthDate: new Date(randomBirthDate()),
     gender: 'FEMALE',
+    phoneNumber: '08012345612',
   },
   {
     firstName: 'MILDRED',
@@ -76,6 +194,7 @@ const users = [
     verified: false,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345613',
   },
   {
     firstName: 'ROBERT',
@@ -86,9 +205,10 @@ const users = [
     verified: false,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345614',
   },
 
-  // NORMAL USER
+  // User
   {
     firstName: 'RODNEY',
     lastName: 'ALVAREZ',
@@ -98,6 +218,7 @@ const users = [
     verified: true,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345615',
   },
   {
     firstName: 'IAN',
@@ -108,6 +229,7 @@ const users = [
     verified: true,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345616',
   },
   {
     firstName: 'TERRY',
@@ -118,6 +240,7 @@ const users = [
     verified: false,
     birthDate: new Date(randomBirthDate()),
     gender: 'MALE',
+    phoneNumber: '08012345617',
   },
   {
     firstName: 'ABIGAIL',
@@ -128,6 +251,7 @@ const users = [
     verified: false,
     birthDate: new Date(randomBirthDate()),
     gender: 'FEMALE',
+    phoneNumber: '08012345618',
   },
 ];
 
@@ -274,91 +398,91 @@ const locations = [
     city: 'TOKYO', //24
     venue: 'Toyosu_PIT',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'KANAGAWA', //25
     venue: 'Shonan_BMW_Stadium_Hiratsuka',
     address: 'KANAGAWA',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'HYOGO', //26
     venue: 'Noevir_Stadium_Kobe',
     address: 'HYOGO',
-    regionId: 3, // 
+    regionId: 3, //
   },
   {
     city: 'KANAGAWA', //27
     venue: 'Kawasaki_Todoroki_Stadium',
     address: 'KANAGAWA',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'TOKYO', //28
     venue: 'Shinjuku_Wald_9_Cinema',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'TOKYO', //29
     venue: 'Akihabara_UDX_Theater',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'TOKYO', //30
     venue: 'National_Theatre_of_Japan',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'KYOTO', //31
     venue: 'Minami_za_Theatre',
     address: 'KYOTO',
-    regionId: 3, // 
+    regionId: 3, //
   },
   {
     city: 'TOKYO', //32
     venue: 'Sumida_Triphony_Hall',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'OSAKA', //33
     venue: 'Osaka_Symphony_Hall',
     address: 'OSAKA',
-    regionId: 3, // 
+    regionId: 3, //
   },
   {
     city: 'AICHI', //34
     venue: 'Toyota Stadium',
     address: 'AICHI',
-    regionId: 5, // 
+    regionId: 5, //
   },
   {
     city: 'SAGA', //35
     venue: 'Ekimae_Real_Estate_Stadium',
     address: 'SAGA',
-    regionId: 6, // 
+    regionId: 6, //
   },
   {
     city: 'TOKYO', //36
     venue: 'Shibuya_Hikarie_Hall',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
   {
     city: 'KYOTO', //37
     venue: 'Kyoto_Minami_za_Theatre',
     address: 'KYOTO',
-    regionId: 3, // 
+    regionId: 3, //
   },
   {
     city: 'TOKYO', //38
     venue: 'Tokyo_National_Noh_Theatre',
     address: 'TOKYO',
-    regionId: 4, // 
+    regionId: 4, //
   },
 ];
 
@@ -382,10 +506,23 @@ const genres = [
   { name: 'LIVE_STREAMING' },
 ];
 
+const fetchAllOrganizerIds = async () => {
+  try {
+    const userIds = [];
+    for (let i = 0; i < 10; i++) {
+      const id = await getOrganizerId(i);
+      userIds.push(id);
+    }
+    return userIds;
+  } catch (error) {
+    console.error('Error creating organizers array:', error.message);
+    throw error;
+  }
+};
+
 const createOrganizersArray = async () => {
   try {
-    const userIds = await Promise.all([getOrganizerId(0), getOrganizerId(1)]);
-
+    const userIds = await fetchAllOrganizerIds();
     const organizers = [
       {
         userId: userIds[0], //0
@@ -400,54 +537,56 @@ const createOrganizersArray = async () => {
         phoneNumber: '029301283123',
       },
       {
-        userId: userIds[1], //2
+        userId: userIds[2], //2
         name: 'MELODIC_MOMENTS',
         email: 'melodicmoments@example.com',
         phoneNumber: '081357394857',
       },
       {
-        userId: userIds[0], //3
+        userId: userIds[3], //3
         name: 'AMPLIFY_PRODUCTIONS',
         email: 'amplifyproductions@example.com',
         phoneNumber: '081339472945',
       },
       {
-        userId: userIds[2], //4
+        userId: userIds[4], //4
         name: 'STELLAR_CONCERTS',
         email: 'stellarconcerts@example.com',
         phoneNumber: '081315382948',
       },
       {
-        userId: userIds[1], //5
+        userId: userIds[5], //5
         name: 'SONIC_SURGE_EVENTS',
         email: 'sonicsurgeevents@example.com',
         phoneNumber: '081337583753',
       },
       {
-        userId: userIds[0], //6
+        userId: userIds[6], //6
         name: 'GRAND_SLAM_SPORTS',
         email: 'grandslamsports@example.com',
         phoneNumber: '081324859385',
       },
       {
-        userId: userIds[1], //7
+        userId: userIds[7], //7
         name: 'VICTORY_SPORTS_MANAGEMENT',
         email: 'victorysportsmanagement@example.com',
         phoneNumber: '081338593042',
       },
       {
-        userId: userIds[2], //8
+        userId: userIds[8], //8
         name: 'STAGE_CRAFT_EVENTS',
         email: 'stagecraftevents@example.com',
         phoneNumber: '081374837465',
       },
       {
-        userId: userIds[3], //9
+        userId: userIds[9], //9
         name: 'HARMONY_EVENTS',
         email: 'harmonyevents@example.com',
         phoneNumber: '081318475830',
       },
     ];
+
+    console.log(organizers);
 
     return organizers;
   } catch (error) {
@@ -458,218 +597,268 @@ const createOrganizersArray = async () => {
 
 const createEventsArray = async () => {
   try {
-    const organizerIds = await Promise.all([
-      getOrganizerId(0),
-      getOrganizerId(1),
-    ]);
+    const organizerIds = await fetchAllOrganizerIds();
+
+    const getRandomOrganizerId = () => {
+      return organizerIds[Math.floor(Math.random() * organizerIds.length)];
+    };
 
     const events = [
       {
-        title: 'FUJI_ROCK_FESTIVAL', //1
-        details: 'FUJI_ROCK_FESTIVAL',
+        title: 'FUJI_ROCK_FESTIVAL',
+        details:
+          'Experience the electrifying energy of Fuji Rock Festival, featuring an incredible lineup of artists from around the world.',
         genreId: 1,
         locationId: 1,
-        organizerId: organizerIds[0],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'TV_ASAHI_65TH_ANNIVERSARY', //2
-        details: 'TV_ASAHI_65TH_ANNIVERSARY',
+        title: 'TV_ASAHI_65TH_ANNIVERSARY',
+        details:
+          "Celebrate TV Asahi's 65th Anniversary with spectacular performances and special guests.",
         genreId: 1,
         locationId: 2,
-        organizerId: organizerIds[1],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'TREASURE_IN_NAGOYA', //3
-        details: 'TREASURE will be performing at Port Messe Nagoya Exhibition Hall 1 in Nagoya on Wednesday, July 24, 2024. The show is part of the 2024 TREASURE FAN MEETING Tour.',
+        title: 'TREASURE_IN_NAGOYA',
+        details:
+          'TREASURE will be performing at Port Messe Nagoya Exhibition Hall 1 in Nagoya on Wednesday, July 24, 2024. The show is part of the 2024 TREASURE FAN MEETING Tour.',
         genreId: 7,
         locationId: 11,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'TWICE_IN_YOKOHAMA', //4
-        details: 'TWICE will be performing at Nissan Stadium in Yokohama on Sunday, July 28, 2024. The show is part of the 5TH WORLD TOUR READY TO BE in JAPAN SPECIAL.',
+        title: 'TWICE_IN_YOKOHAMA',
+        details:
+          'TWICE will be performing at Nissan Stadium in Yokohama on Sunday, July 28, 2024. The show is part of the 5TH WORLD TOUR READY TO BE in JAPAN SPECIAL.',
         genreId: 7,
         locationId: 12,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'LE_SSERAFIM_IN_FUKUOKA', //5
-        details: 'Le Sserafim will be performing at Marine Messe Fukuoka Hall A in Fukuoka on Tuesday, July 30, 2024. The show is part of the FAN MEETING FEARNADA 2024 JAPAN Tour.',
+        title: 'LE_SSERAFIM_IN_FUKUOKA',
+        details:
+          'Le Sserafim will be performing at Marine Messe Fukuoka Hall A in Fukuoka on Tuesday, July 30, 2024. The show is part of the FAN MEETING FEARNADA 2024 JAPAN Tour.',
         genreId: 7,
         locationId: 13,
-        organizerId: organizerIds[3],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'BABYMONSTER_IN_KOBE', //6
-        details: 'BABYMONSTER will be performing at World Memorial Hall in Kobe on Wednesday, July 31, 2024. The show is part of the SEE YOU THERE -FINAL- Tour.',
+        title: 'BABYMONSTER_IN_KOBE',
+        details:
+          'BABYMONSTER will be performing at World Memorial Hall in Kobe on Wednesday, July 31, 2024. The show is part of the SEE YOU THERE -FINAL- Tour.',
         genreId: 7,
         locationId: 14,
-        organizerId: organizerIds[3],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'ADO_JAPAN_TOUR_2024_PROFILE_OF_MONA_LISA', //7
-        details: 'Ado first nationwide arena tour, Ado JAPAN TOUR 2024 Profile of Mona Lisa has been announced. Ado will be performing at Port Messe Nagoya Exhibition Hall 1 in Nagoya on Saturday, August 3, 2024. The show is part of the JAPAN TOUR 2024 Mona Lisa Profile.',
+        title: 'ADO_JAPAN_TOUR_2024_PROFILE_OF_MONA_LISA',
+        details:
+          "Ado's first nationwide arena tour, Ado JAPAN TOUR 2024 Profile of Mona Lisa has been announced. Ado will be performing at Port Messe Nagoya Exhibition Hall 1 in Nagoya on Saturday, August 3, 2024. The show is part of the JAPAN TOUR 2024 Mona Lisa Profile.",
         genreId: 1,
         locationId: 11,
-        organizerId: organizerIds[4],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'HIKARU_UTADA_SCIENCE_FICTION_TOUR_2024', //8
-        details: 'Utada Hikaru will be performing at Yoyogi National Gymnasium in Tokyo on Sunday, August 4, 2024. The show is part of the SCIENCE FICTION TOUR 2024.',
+        title: 'HIKARU_UTADA_SCIENCE_FICTION_TOUR_2024',
+        details:
+          'Utada Hikaru will be performing at Yoyogi National Gymnasium in Tokyo on Sunday, August 4, 2024. The show is part of the SCIENCE FICTION TOUR 2024.',
         genreId: 1,
         locationId: 15,
-        organizerId: organizerIds[4],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'HYDE_LIVE_IN_OSAKA_2024', //9
-        details: 'HYDE will be performing at Zepp Osaka Bayside in Osaka on Tuesday, August 6, 2024. The show is part of the LIVE 2024 Tour.',
+        title: 'HYDE_LIVE_IN_OSAKA_2024',
+        details:
+          'HYDE will be performing at Zepp Osaka Bayside in Osaka on Tuesday, August 6, 2024. The show is part of the LIVE 2024 Tour.',
         genreId: 1,
         locationId: 16,
-        organizerId: organizerIds[5],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Cerezo_Osaka_vs_Borussia_Dortmund', //10
-        details: 'European powerhouse Borussia Dortmund to take part! A dream match against Cerezo Osaka with Shinji Kagawa!',
+        title: 'Cerezo_Osaka_vs_Borussia_Dortmund',
+        details:
+          'European powerhouse Borussia Dortmund to take part! A dream match against Cerezo Osaka with Shinji Kagawa!',
         genreId: 2,
         locationId: 17,
-        organizerId: organizerIds[6],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale', //11
-        details: 'A thrilling clash between J-League giants Urawa Red Diamonds and Kawasaki Frontale! Dont miss this exciting match featuring top-tier Japanese football talent!',
+        title: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale',
+        details:
+          "A thrilling clash between J-League giants Urawa Red Diamonds and Kawasaki Frontale! Don't miss this exciting match featuring top-tier Japanese football talent!",
         genreId: 2,
         locationId: 18,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'ASIAN_KUNG-FU_GENERATION_Anniversary_Special_Live', //12
-        details: 'ASIAN KUNG-FU GENERATION will be performing at Yokohama Buntai Arena in Yokohama on Sunday, August 25, 2024. The show is part of the Anniversary Special Live Fan Thanksgiving 2024 Tour.',
+        title: 'ASIAN_KUNG-FU_GENERATION_Anniversary_Special_Live',
+        details:
+          'ASIAN KUNG-FU GENERATION will be performing at Yokohama Buntai Arena in Yokohama on Sunday, August 25, 2024. The show is part of the Anniversary Special Live Fan Thanksgiving 2024 Tour.',
         genreId: 1,
         locationId: 19,
-        organizerId: organizerIds[5],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'The_Tale_of_Genji_-_A_Theatrical_Experience', //13
-        details: 'Experience the timeless classic "The Tale of Genji" brought to life on stage! A mesmerizing performance blending traditional Japanese Noh and modern theatrical elements.',
+        title: 'The_Tale_of_Genji_-_A_Theatrical_Experience',
+        details:
+          'Experience the timeless classic "The Tale of Genji" brought to life on stage! A mesmerizing performance blending traditional Japanese Noh and modern theatrical elements.',
         genreId: 3,
         locationId: 20,
-        organizerId: organizerIds[8],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Anime_Premiere_of_"Legend_of_the_Sky_Warriors"', //14
-        details: 'Join us for the exclusive premiere of the highly anticipated anime "Legend of the Sky Warriors"! Be among the first to witness the stunning visuals and captivating story of this new series.',
+        title: 'Anime_Premiere_of_"Legend_of_the_Sky_Warriors"',
+        details:
+          'Join us for the exclusive premiere of the highly anticipated anime "Legend of the Sky Warriors"! Be among the first to witness the stunning visuals and captivating story of this new series.',
         genreId: 6,
         locationId: 21,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: '"Symphony_of_the_Stars"_-_An_Evening_of_Classical_Music', //15
-        details: 'Join us for a magical evening with the "Symphony of the Stars" orchestra, performing classical masterpieces under the night sky.',
+        title: '"Symphony_of_the_Stars"_-_An_Evening_of_Classical_Music',
+        details:
+          'Join us for a magical evening with the "Symphony of the Stars" orchestra, performing classical masterpieces under the night sky.',
         genreId: 4,
         locationId: 22,
-        organizerId: organizerIds[9],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'LiSA_LiVE_is_Smile_Always_in_Osaka', //16
+        title: 'LiSA_LiVE_is_Smile_Always_in_Osaka',
+        details:
+          'LiSA will be performing live in Osaka. Don\'t miss her electrifying performance as part of her "LiVE is Smile Always" tour.',
         genreId: 1,
         locationId: 3,
-        organizerId: organizerIds[5],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'ONE_OK_ROCK_2024_PREMONITION_WORLD_TOUR_in_Tokyo', //17
+        title: 'ONE_OK_ROCK_2024_PREMONITION_WORLD_TOUR_in_Tokyo',
+        details:
+          'ONE OK ROCK is coming to Tokyo as part of their 2024 PREMONITION WORLD TOUR. Get ready for an unforgettable night of rock music!',
         genreId: 1,
         locationId: 23,
-        organizerId: organizerIds[5],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'OneRepublic_Japan_Tour', //18
+        title: 'OneRepublic_Japan_Tour',
+        details:
+          'OneRepublic is coming to Japan! Join them for an amazing live performance featuring their biggest hits.',
         genreId: 1,
         locationId: 24,
-        organizerId: organizerIds[5],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Shonan_Bellmare_vs_Yokohama_FC', //19
+        title: 'Shonan_Bellmare_vs_Yokohama_FC',
+        details:
+          'Watch the exciting match between Shonan Bellmare and Yokohama FC, featuring top football talent.',
         genreId: 2,
         locationId: 25,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Vissel_Kobe_vs_Urawa_Red_Diamonds', //20
+        title: 'Vissel_Kobe_vs_Urawa_Red_Diamonds',
+        details:
+          "Don't miss the thrilling match between Vissel Kobe and Urawa Red Diamonds. It's going to be an epic showdown!",
         genreId: 2,
         locationId: 26,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Kawasaki_Frontale_vs_FC_Tokyo', //21
+        title: 'Kawasaki_Frontale_vs_FC_Tokyo',
+        details:
+          'A fierce battle between Kawasaki Frontale and FC Tokyo. Who will come out on top? Be there to find out!',
         genreId: 2,
         locationId: 27,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Anime_Premiere_of_Mystic_Warriors_of_the_Dawn', //22
+        title: 'Anime_Premiere_of_Mystic_Warriors_of_the_Dawn',
+        details:
+          'Be among the first to witness the premiere of "Mystic Warriors of the Dawn". An anime experience you don\'t want to miss!',
         genreId: 6,
         locationId: 28,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Anime_Premiere_of_Guardians_of_the_Infinite_Realm', //23
+        title: 'Anime_Premiere_of_Guardians_of_the_Infinite_Realm',
+        details:
+          'Join us for the premiere of "Guardians of the Infinite Realm". An epic anime journey awaits!',
         genreId: 6,
         locationId: 29,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Journey_Through_Time_-_A_Historical_Play', //24
+        title: 'Journey_Through_Time_-_A_Historical_Play',
+        details:
+          'Take a journey through time with this captivating historical play. Experience the past like never before.',
         genreId: 3,
         locationId: 30,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Samurai_Saga_-_A_Theatrical_Adventure', //25
+        title: 'Samurai_Saga_-_A_Theatrical_Adventure',
+        details:
+          'Step into the world of the samurai with this thrilling theatrical adventure. A must-see performance!',
         genreId: 3,
         locationId: 31,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Echoes_of_Eternity_-_An_Evening_of_Classical_Music', //26
+        title: 'Echoes_of_Eternity_-_An_Evening_of_Classical_Music',
+        details:
+          'Enjoy an evening of classical music with "Echoes of Eternity". A sublime experience under the stars.',
         genreId: 4,
         locationId: 32,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Harmony_of_the_Spheres_-_An_Orchestral_Night', //27
+        title: 'Harmony_of_the_Spheres_-_An_Orchestral_Night',
+        details:
+          'Join us for "Harmony of the Spheres", an orchestral night of beautiful music and enchanting melodies.',
         genreId: 4,
         locationId: 33,
-        organizerId: organizerIds[4],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima', //28
+        title: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima',
+        details:
+          'A high-stakes match between Nagoya Grampus and Sanfrecce Hiroshima. Get ready for intense football action!',
         genreId: 2,
         locationId: 34,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Sagan_Tosu_vs_Vegalta_Sendai', //29
+        title: 'Sagan_Tosu_vs_Vegalta_Sendai',
+        details:
+          "Catch the exciting game between Sagan Tosu and Vegalta Sendai. Football fans, don't miss out!",
         genreId: 2,
         locationId: 35,
-        organizerId: organizerIds[7],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Anime_Premiere_of_Celestial_Guardians', //30
+        title: 'Anime_Premiere_of_Celestial_Guardians',
+        details:
+          'Witness the premiere of "Celestial Guardians". A captivating new anime series that promises to impress.',
         genreId: 6,
         locationId: 36,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'Mysteries_of_the_Samurai_-_A_Theatrical_Experience', //31
+        title: 'Mysteries_of_the_Samurai_-_A_Theatrical_Experience',
+        details:
+          'Delve into the mysteries of the samurai with this immersive theatrical experience. A blend of history and drama.',
         genreId: 3,
         locationId: 37,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
       {
-        title: 'The_Enchanted_Forest_-_A_Fantasy_Play', //32
+        title: 'The_Enchanted_Forest_-_A_Fantasy_Play',
+        details:
+          'Enter "The Enchanted Forest" and experience a fantasy play like no other. Magic and adventure await!',
         genreId: 3,
         locationId: 38,
-        organizerId: organizerIds[2],
+        organizerId: getRandomOrganizerId(),
       },
     ];
 
@@ -930,7 +1119,6 @@ const schedules = [
   },
 ];
 
-
 const eventTickets = [
   {
     name: 'FUJI_ROCK_REGULAR_FIRST_DAY',
@@ -941,7 +1129,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_PREMIUM_FIRST_DAY',
@@ -952,7 +1140,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_REGULAR_SECOND_DAY',
@@ -963,7 +1151,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'FUJI_ROCK_PREMIUM_SECOND_DAY',
@@ -974,7 +1162,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'FUJIROCK'
+    details: 'FUJIROCK',
   },
   {
     name: 'TV_ASAHI_ONE_DAY_TICKET_SATURDAY',
@@ -985,7 +1173,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
   {
     name: 'TV_ASAHI_ONE_DAY_TICKET_SUNDAY',
@@ -996,7 +1184,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 400,
     qty: 400,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
   {
     name: 'TV_ASAHI_TWO_DAY_TICKET_SATURDAY_SUNDAY',
@@ -1007,7 +1195,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TV_ASAHI'
+    details: 'TV_ASAHI',
   },
   {
     name: 'TREASURE_GENERAL_PRICE',
@@ -1018,7 +1206,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TREASURE'
+    details: 'TREASURE',
   },
   {
     name: 'TREASURE_SPECIAL_SEAT',
@@ -1029,7 +1217,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TREASURE'
+    details: 'TREASURE',
   },
   {
     name: 'TREASURE_PREMIUM_SEAT',
@@ -1040,7 +1228,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TREASURE'
+    details: 'TREASURE',
   },
   {
     name: 'TWICE_SEATS_RESERVED',
@@ -1051,7 +1239,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'TWICE'
+    details: 'TWICE',
   },
   {
     name: 'LE_SSERAFIM_PREMIUM_SEATS',
@@ -1062,7 +1250,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'LE_SSERAFIM'
+    details: 'LE_SSERAFIM',
   },
   {
     name: 'LE_SSERAFIM_RESERVED_SEATS',
@@ -1073,7 +1261,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'LE_SSERAFIM'
+    details: 'LE_SSERAFIM',
   },
   {
     name: 'BABYMONSTER_RESERVED_A',
@@ -1084,7 +1272,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'BABYMONSTER'
+    details: 'BABYMONSTER',
   },
   {
     name: 'BABYMONSTER_RESERVED_S',
@@ -1095,7 +1283,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'BABYMONSTER'
+    details: 'BABYMONSTER',
   },
   {
     name: 'BABYMONSTER_RESERVED_SS',
@@ -1106,7 +1294,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'BABYMONSTER'
+    details: 'BABYMONSTER',
   },
   {
     name: 'ADO_VIP',
@@ -1117,7 +1305,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ADO'
+    details: 'ADO',
   },
   {
     name: 'ADO_FAMILY',
@@ -1128,7 +1316,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ADO'
+    details: 'ADO',
   },
   {
     name: 'ADO_S',
@@ -1139,7 +1327,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ADO'
+    details: 'ADO',
   },
   {
     name: 'ADO_A',
@@ -1150,7 +1338,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ADO'
+    details: 'ADO',
   },
   {
     name: 'HIKARU_UTADA_REGULAR',
@@ -1161,7 +1349,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'HIKARU_UTADA'
+    details: 'HIKARU_UTADA',
   },
   {
     name: 'HYDE_1F',
@@ -1172,7 +1360,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'HYDE'
+    details: 'HYDE',
   },
   {
     name: 'HYDE_2F',
@@ -1183,7 +1371,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'HYDE'
+    details: 'HYDE',
   },
   {
     name: 'Cerezo_Osaka_vs_Borussia_Dortmund_VIP',
@@ -1194,7 +1382,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Cerezo_Osaka_vs_Borussia_Dortmund'
+    details: 'Cerezo_Osaka_vs_Borussia_Dortmund',
   },
   {
     name: 'Cerezo_Osaka_vs_Borussia_Dortmund_PREMIUM',
@@ -1205,7 +1393,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Cerezo_Osaka_vs_Borussia_Dortmund'
+    details: 'Cerezo_Osaka_vs_Borussia_Dortmund',
   },
   {
     name: 'Cerezo_Osaka_vs_Borussia_Dortmund_CATEGORY_1',
@@ -1216,7 +1404,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Cerezo_Osaka_vs_Borussia_Dortmund'
+    details: 'Cerezo_Osaka_vs_Borussia_Dortmund',
   },
   {
     name: 'Cerezo_Osaka_vs_Borussia_Dortmund_CATEGORY_2',
@@ -1227,7 +1415,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Cerezo_Osaka_vs_Borussia_Dortmund'
+    details: 'Cerezo_Osaka_vs_Borussia_Dortmund',
   },
   {
     name: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale_VIP',
@@ -1238,7 +1426,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale'
+    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale',
   },
   {
     name: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale_PREMIUM',
@@ -1249,7 +1437,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale'
+    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale',
   },
   {
     name: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale_CATEGORY_1',
@@ -1260,7 +1448,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale'
+    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale',
   },
   {
     name: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale_CATEGORY_2',
@@ -1271,7 +1459,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale'
+    details: 'Urawa_Red_Diamonds_vs_Kawasaki_Frontale',
   },
   {
     name: 'ASIAN_KUNGFU_GENERATION_GENERAL',
@@ -1282,7 +1470,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ASIAN_KUNGFU_GENERATION'
+    details: 'ASIAN_KUNGFU_GENERATION',
   },
   {
     name: 'THE_TALE_OF_GENJI_VIP',
@@ -1293,7 +1481,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'THE_TALE_OF_GENJI'
+    details: 'THE_TALE_OF_GENJI',
   },
   {
     name: 'THE_TALE_OF_GENJI_PREMIUM',
@@ -1304,7 +1492,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'THE_TALE_OF_GENJI'
+    details: 'THE_TALE_OF_GENJI',
   },
   {
     name: 'LEGEND_OF_THE_SKY_WARRIORS_VIP',
@@ -1315,7 +1503,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'LEGEND_OF_THE_SKY_WARRIORS'
+    details: 'LEGEND_OF_THE_SKY_WARRIORS',
   },
   {
     name: 'LEGEND_OF_THE_SKY_WARRIORS_GENERAL',
@@ -1326,7 +1514,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'LEGEND_OF_THE_SKY_WARRIORS'
+    details: 'LEGEND_OF_THE_SKY_WARRIORS',
   },
   {
     name: 'SYMPHONY_OF_THE_STARS_VIP',
@@ -1337,7 +1525,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'SYMPHONY_OF_THE_STARS'
+    details: 'SYMPHONY_OF_THE_STARS',
   },
   {
     name: 'SYMPHONY_OF_THE_STARS_GENERAL',
@@ -1348,7 +1536,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'SYMPHONY_OF_THE_STARS'
+    details: 'SYMPHONY_OF_THE_STARS',
   },
   {
     name: 'LISA_RESERVED',
@@ -1359,7 +1547,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'LISA'
+    details: 'LISA',
   },
   {
     name: 'ONE_OK_ROCK_RESERVED',
@@ -1370,7 +1558,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ONE_OK_ROCK'
+    details: 'ONE_OK_ROCK',
   },
   {
     name: 'ONE_REPUBLIC_REGULAR',
@@ -1381,7 +1569,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'ONE_REPUBLIC'
+    details: 'ONE_REPUBLIC',
   },
   {
     name: 'Shonan_Bellmare_vs_Yokohama_FC_VIP',
@@ -1392,7 +1580,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+    details: 'Shonan_Bellmare_vs_Yokohama_FC',
   },
   {
     name: 'Shonan_Bellmare_vs_Yokohama_FC_PREMIUM',
@@ -1403,7 +1591,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+    details: 'Shonan_Bellmare_vs_Yokohama_FC',
   },
   {
     name: 'Shonan_Bellmare_vs_Yokohama_FC_CATEGORY_1',
@@ -1414,7 +1602,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+    details: 'Shonan_Bellmare_vs_Yokohama_FC',
   },
   {
     name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_VIP',
@@ -1425,7 +1613,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds',
   },
   {
     name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_PREMIUM',
@@ -1436,7 +1624,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds',
   },
   {
     name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_CATEGORY_1',
@@ -1447,7 +1635,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds',
   },
   {
     name: 'Kawasaki_Frontale_vs_FC_Tokyo_VIP',
@@ -1458,7 +1646,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo',
   },
   {
     name: 'Kawasaki_Frontale_vs_FC_Tokyo_PREMIUM',
@@ -1469,7 +1657,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo',
   },
   {
     name: 'Kawasaki_Frontale_vs_FC_Tokyo_CATEGORY_1',
@@ -1480,7 +1668,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo',
   },
   {
     name: 'Mystic_Warriors_of_the_Dawn_VIP',
@@ -1491,7 +1679,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Mystic_Warriors_of_the_Dawn'
+    details: 'Mystic_Warriors_of_the_Dawn',
   },
   {
     name: 'Mystic_Warriors_of_the_Dawn_GENERAL',
@@ -1502,7 +1690,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Mystic_Warriors_of_the_Dawn'
+    details: 'Mystic_Warriors_of_the_Dawn',
   },
   {
     name: 'Guardians_of_the_Infinite_Realm_VIP',
@@ -1513,7 +1701,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Guardians_of_the_Infinite_Realm'
+    details: 'Guardians_of_the_Infinite_Realm',
   },
   {
     name: 'Guardians_of_the_Infinite_Realm_GENERAL',
@@ -1524,7 +1712,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Guardians_of_the_Infinite_Realm'
+    details: 'Guardians_of_the_Infinite_Realm',
   },
   {
     name: 'Journey_Through_Time_VIP',
@@ -1535,7 +1723,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Journey_Through_Time'
+    details: 'Journey_Through_Time',
   },
   {
     name: 'Journey_Through_Time_PREMIUM',
@@ -1546,7 +1734,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Journey_Through_Time'
+    details: 'Journey_Through_Time',
   },
   {
     name: 'Journey_Through_Time_CATEGORY_1',
@@ -1557,7 +1745,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Journey_Through_Time'
+    details: 'Journey_Through_Time',
   },
   {
     name: 'Samurai_Saga_VIP',
@@ -1568,7 +1756,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Samurai_Saga'
+    details: 'Samurai_Saga',
   },
   {
     name: 'Samurai_Saga_PREMIUM',
@@ -1579,7 +1767,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Samurai_Saga'
+    details: 'Samurai_Saga',
   },
   {
     name: 'Samurai_Saga_CATEGORY_1',
@@ -1590,7 +1778,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Samurai_Saga'
+    details: 'Samurai_Saga',
   },
   {
     name: 'Echoes_of_Eternity_VIP',
@@ -1601,7 +1789,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Echoes_of_Eternity'
+    details: 'Echoes_of_Eternity',
   },
   {
     name: 'Echoes_of_Eternity_PREMIUM',
@@ -1612,7 +1800,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Echoes_of_Eternity'
+    details: 'Echoes_of_Eternity',
   },
   {
     name: 'Echoes_of_Eternity_CATEGORY_1',
@@ -1623,7 +1811,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Echoes_of_Eternity'
+    details: 'Echoes_of_Eternity',
   },
   {
     name: 'Harmony_of_the_Spheres_VIP',
@@ -1634,7 +1822,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Harmony_of_the_Spheres'
+    details: 'Harmony_of_the_Spheres',
   },
   {
     name: 'Harmony_of_the_Spheres_PREMIUM',
@@ -1645,7 +1833,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Harmony_of_the_Spheres'
+    details: 'Harmony_of_the_Spheres',
   },
   {
     name: 'Harmony_of_the_Spheres_CATEGORY_1',
@@ -1656,7 +1844,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Harmony_of_the_Spheres'
+    details: 'Harmony_of_the_Spheres',
   },
   {
     name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_VIP',
@@ -1667,7 +1855,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima',
   },
   {
     name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_PREMIUM',
@@ -1678,7 +1866,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima',
   },
   {
     name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_CATEGORY_1',
@@ -1689,7 +1877,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima',
   },
   {
     name: 'Sagan_Tosu_vs_Vegalta_Sendai_VIP',
@@ -1700,7 +1888,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai',
   },
   {
     name: 'Sagan_Tosu_vs_Vegalta_Sendai_PREMIUM',
@@ -1711,7 +1899,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai',
   },
   {
     name: 'Sagan_Tosu_vs_Vegalta_Sendai_CATEGORY_1',
@@ -1722,7 +1910,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai',
   },
   {
     name: 'Celestial_Guardians_VIP',
@@ -1733,7 +1921,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Celestial_Guardians'
+    details: 'Celestial_Guardians',
   },
   {
     name: 'Celestial_Guardians_GENERAL',
@@ -1744,7 +1932,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Celestial_Guardians'
+    details: 'Celestial_Guardians',
   },
   {
     name: 'Mysteries_of_the_Samurai_VIP',
@@ -1755,7 +1943,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Mysteries_of_the_Samurai'
+    details: 'Mysteries_of_the_Samurai',
   },
   {
     name: 'Mysteries_of_the_Samurai_PREMIUM',
@@ -1766,7 +1954,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Mysteries_of_the_Samurai'
+    details: 'Mysteries_of_the_Samurai',
   },
   {
     name: 'Mysteries_of_the_Samurai_CATEGORY_1',
@@ -1777,7 +1965,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'Mysteries_of_the_Samurai'
+    details: 'Mysteries_of_the_Samurai',
   },
   {
     name: 'The_Enchanted_Forest_VIP',
@@ -1788,7 +1976,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'The_Enchanted_Forest'
+    details: 'The_Enchanted_Forest',
   },
   {
     name: 'The_Enchanted_Forest_PREMIUM',
@@ -1799,7 +1987,7 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'The_Enchanted_Forest'
+    details: 'The_Enchanted_Forest',
   },
   {
     name: 'The_Enchanted_Forest_CATEGORY_1',
@@ -1810,196 +1998,189 @@ const eventTickets = [
     type: 'DIGITAL',
     totalQty: 200,
     qty: 200,
-    details: 'The_Enchanted_Forest'
+    details: 'The_Enchanted_Forest',
   },
 ];
 
 const eventPictures = [
   {
     eventId: 1,
-    link: 'AAA1',
-  },
-  {
-    eventId: 1,
-    link: 'BBB1',
+    link: 'src/public/event-images/IMG_FUJI_1.jpeg'
   },
   {
     eventId: 2,
-    link: 'AAA2',
-  },
-  {
-    eventId: 2,
-    link: 'BBB2',
+    link: 'src/public/event-images/IMG_TV_ASAHI_1.jpeg'
   },
   {
     eventId: 3,
-    link: '/images/treasure small.png',
+    link: 'src/public/event-images/treasure small.png',
   },
   {
     eventId: 3,
-    link: '/images/treasure_concert_poster_landscape.jpg',
+    link: 'src/public/event-images/treasure_concert_poster_landscape.jpg',
   },
   {
     eventId: 4,
-    link: '.images/twice small.jpeg',
+    link: 'src/public/event-images/twice small.jpeg',
   },
   {
     eventId: 4,
-    link: '/images/twice landscape.jpeg',
+    link: 'src/public/event-images/twice landscape.jpeg',
   },
   {
     eventId: 5,
-    link: '/images/le sserafim small.jpeg',
+    link: 'src/public/event-images/le sserafim small.jpeg',
   },
   {
     eventId: 5,
-    link: '/images/le sserafim landscape .jpeg',
+    link: 'src/public/event-images/le sserafim landscape .jpeg',
   },
   {
     eventId: 6,
-    link: '/images/babymonster landscape.jpg',
+    link: 'src/public/event-images/babymonster landscape.jpg',
   },
   {
     eventId: 6,
-    link: '/images/babymonster small.jpg',
+    link: 'src/public/event-images/babymonster small.jpg',
   },
   {
     eventId: 7,
-    link: '/images/ado small.jpg',
+    link: 'src/public/event-images/ado small.jpg',
   },
   {
     eventId: 8,
-    link: '/images/Hikaru Utada landscape.png',
+    link: 'src/public/event-images/Hikaru Utada landscape.png',
   },
   {
     eventId: 8,
-    link: '/images/Hikaru Utada small.jpg',
+    link: 'src/public/event-images/Hikaru Utada small.jpg',
   },
   {
     eventId: 9,
-    link: '/images/hyde landscape.jpg',
+    link: 'src/public/event-images/hyde landscape.jpg',
   },
   {
     eventId: 9,
-    link: '/images/hyde small.jpg',
+    link: 'src/public/event-images/hyde small.jpg',
   },
   {
     eventId: 10,
-    link: '/images/Cerezo Osaka vs Borussia Dortmund landscape_.jpg',
+    link: 'src/public/event-images/Cerezo Osaka vs Borussia Dortmund landscape_.jpg',
   },
   {
     eventId: 10,
-    link: '/images/Cerezo Osaka vs Borussia Dortmund small.jpg',
+    link: 'src/public/event-images/Cerezo Osaka vs Borussia Dortmund small.jpg',
   },
   {
     eventId: 11,
-    link: '/images/Urawa Red Diamonds vs Kawasaki Frontale landscape.jpg',
+    link: 'src/public/event-images/Urawa Red Diamonds vs Kawasaki Frontale landscape.jpg',
   },
   {
     eventId: 11,
-    link: '/images/Urawa Red Diamonds vs Kawasaki Frontale small.png',
+    link: 'src/public/event-images/Urawa Red Diamonds vs Kawasaki Frontale small.png',
   },
   {
     eventId: 12,
-    link: '/images/ASIAN KUNG-FU GENERATION landscape.jpg',
+    link: 'src/public/event-images/ASIAN KUNG-FU GENERATION landscape.jpg',
   },
   {
     eventId: 12,
-    link: '/images/ASIAN KUNG-FU GENERATION small.jpg',
+    link: 'src/public/event-images/ASIAN KUNG-FU GENERATION small.jpg',
   },
   {
     eventId: 13,
-    link: '/images/tale of genji small.jpg',
+    link: 'src/public/event-images/tale of genji small.jpg',
   },
   {
     eventId: 14,
-    link: '/images/legend of the sky warrior small.jpg',
+    link: 'src/public/event-images/legend of the sky warrior small.jpg',
   },
   {
     eventId: 15,
-    link: '/images/symphony small.jpg',
+    link: 'src/public/event-images/symphony small.jpg',
   },
   {
     eventId: 16,
-    link: '/images/lisa landscape.jpg',
+    link: 'src/public/event-images/lisa landscape.jpg',
   },
   {
     eventId: 16,
-    link: '/images/lisa small.jpg',
+    link: 'src/public/event-images/lisa small.jpg',
   },
   {
     eventId: 17,
-    link: '/images/one ok rock landscape.jpg',
+    link: 'src/public/event-images/one ok rock landscape.jpg',
   },
   {
     eventId: 17,
-    link: '/images/one ok rock small.png',
+    link: 'src/public/event-images/one ok rock small.png',
   },
   {
     eventId: 18,
-    link: '/images/one republic small.jpeg',
+    link: 'src/public/event-images/one republic small.jpeg',
   },
   {
     eventId: 18,
-    link: '/images/one republic landscape.jpg',
+    link: 'src/public/event-images/one republic landscape.jpg',
   },
   {
     eventId: 19,
-    link: '/images/Shonan Bellmare vs Yokohama FC small.png',
+    link: 'src/public/event-images/Shonan Bellmare vs Yokohama FC small.png',
   },
   {
     eventId: 20,
-    link: '/images/Vissel Kobe vs Urawa Red Diamonds small.jpg',
+    link: 'src/public/event-images/Vissel Kobe vs Urawa Red Diamonds small.jpg',
   },
   {
     eventId: 21,
-    link: '/images/Kawasaki Frontale vs FC Tokyo small.jpg',
+    link: 'src/public/event-images/Kawasaki Frontale vs FC Tokyo small.jpg',
   },
   {
     eventId: 22,
-    link: '/images/Mystic Warriors of the Dawn small.jpg',
+    link: 'src/public/event-images/Mystic Warriors of the Dawn small.jpg',
   },
   {
     eventId: 23,
-    link: '/images/Guardians of the Infinite Realm small.jpg',
+    link: 'src/public/event-images/Guardians of the Infinite Realm small.jpg',
   },
   {
     eventId: 24,
-    link: '/images/Journey Through Time small.jpg',
+    link: 'src/public/event-images/Journey Through Time small.jpg',
   },
   {
     eventId: 25,
-    link: '/images/Samurai Saga small.jpg',
+    link: 'src/public/event-images/Samurai Saga small.jpg',
   },
   {
     eventId: 26,
-    link: '/images/Echoes of Eternity small.jpg',
+    link: 'src/public/event-images/Echoes of Eternity small.jpg',
   },
   {
     eventId: 27,
-    link: '/images/Harmony of the Spheres small.jpg',
+    link: 'src/public/event-images/Harmony of the Spheres small.jpg',
   },
   {
     eventId: 28,
-    link: '/images/Nagoya Grampus vs Sanfrecce Hiroshima small.jpg',
+    link: 'src/public/event-images/Nagoya Grampus vs Sanfrecce Hiroshima small.jpg',
   },
   {
     eventId: 29,
-    link: '/images/Sagan Tosu vs Vegalta Sendai small.jpg',
+    link: 'src/public/event-images/Sagan Tosu vs Vegalta Sendai small.jpg',
   },
   {
     eventId: 30,
-    link: '/images/Celestial Guardian small.jpg',
+    link: 'src/public/event-images/Celestial Guardian small.jpg',
   },
   {
     eventId: 31,
-    link: '/images/Mysteries of the Samurai small.jpg',
+    link: 'src/public/event-images/Mysteries of the Samurai small.jpg',
   },
   {
     eventId: 32,
-    link: '/images/The Enchanted Forest small.jpg',
+    link: 'src/public/event-images/The Enchanted Forest small.jpg',
   },
 ];
+
 
 const transactionStatuses = [
   {
@@ -2017,9 +2198,6 @@ const transactionStatuses = [
 ];
 
 const roles = [
-  {
-    name: 'SUPER_ADMIN',
-  },
   {
     name: 'EVENT_ORGANIZER',
   },
@@ -2108,7 +2286,8 @@ async function main() {
   // Insert Organizers
   if (organizerCount === 0 && userCount > 0) {
     try {
-      const organizers = createOrganizersArray();
+      const organizers = await createOrganizersArray();
+      console.log(chalk.red(organizers));
       for (const item of organizers) {
         await prisma.organizer.create({
           data: item,
