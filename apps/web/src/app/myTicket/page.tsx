@@ -5,10 +5,10 @@ export default function MyTicket(){
     return(
         <>
             <div className="lg:px-[200px] pt-[20px]">
-                <div className="text-[35px] font-bold">
+                <div className="text-[35px] font-bold flex justify-center lg:justify-start">
                     MyTickets
                 </div>
-                <div className="flex flex-col lg:flex-row gap-[20px] pt-[20px] justify-center lg:px-[150px] lg:justify-start">
+                <div className="flex flex-col lg:flex-row gap-[20px] pt-[20px] justify-center px-[10px] lg:px-[150px] lg:justify-start">
                     <div>
                         Sort By
                     </div>
@@ -27,8 +27,8 @@ export default function MyTicket(){
                     </div>
                 </div>
 
-                <div className="flex items-center pt-[30px] pb-[50px] justify-center">
-                    <div className="rounded flex justify-center w-[1000px] h-full shadow-xl px-[25px] gap-[20px] border-t-4 border-blue-500">
+                <div className="flex items-center pt-[30px] px-[10px] pb-[50px] justify-center">
+                    <div className="rounded flex justify-center w-[1000px] h-full shadow-xl px-[25px] gap-[25px] border-t-4 border-blue-500">
                         <div className="py-[10px]">
                             <Image 
                                 src="/images/one ok rock small.png"
@@ -40,7 +40,7 @@ export default function MyTicket(){
                             
                         <div className="flex flex-col">
                             
-                            <div className="flex gap-[20px] pt-[10px]">
+                            <div className="flex gap-[20px] pt-[10px] text-[16px] lg:text-[20px]">
                                 <div className="w-[100%] flex-[70%] justify-start py-[5px] font-bold">
                                     ONE OK ROCK 2024 PREMONITION WORLD TOUR in Tokyo
                                 </div>

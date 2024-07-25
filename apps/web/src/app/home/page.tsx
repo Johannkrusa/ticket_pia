@@ -34,8 +34,68 @@ export default function ProductPage(){
         { src: '/images/Hikaru Utada landscape.png', alt: 'Loket Music Event' }
     ];
 
-    const animes = [
+    const music = [
         { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avenged Sevenfold' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Skrillex' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Festival' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Event' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Pop Concert' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Shawn Mendes' }
+    ];
+
+    const theater = [
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Theater Japan' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Skrillex' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Festival' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Event' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Pop Concert' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Shawn Mendes' }
+    ];
+
+    const sports = [
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Theater Japan' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Skrillex' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Festival' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Event' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Pop Concert' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Shawn Mendes' }
+    ];
+
+    const classic = [
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Theater Japan' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Skrillex' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Festival' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Event' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Pop Concert' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Shawn Mendes' }
+    ];
+
+    const movie = [
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Theater Japan' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Skrillex' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Festival' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Loket Music Event' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Pop Concert' },
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Shawn Mendes' }
+    ];
+
+    const anime = [
+        { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Theater Japan' },
         { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Babymetal' },
         { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'Avicii' },
         { src: '/images/FUJI_ROCK_2_0205-500.jpg', alt: 'David Guetta' },
@@ -91,7 +151,7 @@ export default function ProductPage(){
         dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 4, // Change this value to 3 or 4 depending on your needs
+        slidesToShow: 4, 
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
@@ -129,7 +189,7 @@ export default function ProductPage(){
     
     return(
         <>
-            <div className="bg-blue-500 w-full h-full flex justify-center lg:px-[300px] py-[20px]">
+            <div className="bg-blue-500 w-full h-full flex justify-center px-[10px] lg:px-[300px] py-[20px]">
                 <div className="relative w-[700px]">
                     <input
                     type="text"
@@ -140,11 +200,11 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="w-full mb-12 pt-[30px] h-[450px]"> 
+            <div className="w-full mb-12 pt-[30px] h-[300px] lg:h-[450px]"> 
                 <Slider {...settings}> 
                     {banners.map((banner, index) => (
                         <div key={index} className="px-2">
-                            <div className="relative w-full h-[450px]">
+                            <div className="relative w-full h-[300px] lg:h-[450px]">
                                 <Image
                                     src={banner.src}
                                     alt={banner.alt}
@@ -233,11 +293,11 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="lg:px-[300px] py-[40px] text-[35px] font-bold">
+            <div className="lg:px-[300px] px-[10px] py-[40px] text-[35px] font-bold">
                 Recommended Ticket Information
             </div>
 
-            <div className="lg:px-[300px] flex flex-col gap-[40px]">
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px]">
                 <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
                     <div className="flex items-center gap-[10px]">
                         <div className="text-[25px] text-blue-500">
@@ -255,7 +315,184 @@ export default function ProductPage(){
 
             <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
                 <Slider {...settings_2}> 
-                    {animes.map((anime, index) => (
+                    {music.map((music, index) => (
+                        <div key={index} className="px-2">
+                            <div className="relative w-full h-[270px]">
+                                <Image
+                                    src={music.src}
+                                    alt={music.alt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-md"
+                                />
+                            </div>
+                            <div className="text-center mt-2">{music.alt}</div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>  
+
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px] pt-[50px]">
+                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
+                    <div className="flex items-center gap-[10px]">
+                        <div className="text-[25px] text-blue-500">
+                            <GiTheaterCurtains />
+                        </div>
+                        <div className="text-[25px]">
+                            Theater
+                        </div>
+                    </div>
+                    <div className="text-blue-500">
+                        Show More
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
+                <Slider {...settings_2}> 
+                    {theater.map((theater, index) => (
+                        <div key={index} className="px-2">
+                            <div className="relative w-full h-[270px]">
+                                <Image
+                                    src={theater.src}
+                                    alt={theater.alt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-md"
+                                />
+                            </div>
+                            <div className="text-center mt-2">{theater.alt}</div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>  
+
+
+
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px] pt-[50px]">
+                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
+                    <div className="flex items-center gap-[10px]">
+                        <div className="text-[25px] text-blue-500">
+                        <MdOutlineSportsSoccer />
+                        </div>
+                        <div className="text-[25px]">
+                            Sports
+                        </div>
+                    </div>
+                    <div className="text-blue-500">
+                        Show More
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
+                <Slider {...settings_2}> 
+                    {sports.map((sports, index) => (
+                        <div key={index} className="px-2">
+                            <div className="relative w-full h-[270px]">
+                                <Image
+                                    src={sports.src}
+                                    alt={sports.alt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-md"
+                                />
+                            </div>
+                            <div className="text-center mt-2">{sports.alt}</div>
+                        </div>
+                    ))}
+                </Slider>
+            </div> 
+
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px] pt-[50px]">
+                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
+                    <div className="flex items-center gap-[10px]">
+                        <div className="text-[25px] text-blue-500">
+                            <GiViolin />
+                        </div>
+                        <div className="text-[25px]">
+                            Classic
+                        </div>
+                    </div>
+                    <div className="text-blue-500">
+                        Show More
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
+                <Slider {...settings_2}> 
+                    {classic.map((classic, index) => (
+                        <div key={index} className="px-2">
+                            <div className="relative w-full h-[270px]">
+                                <Image
+                                    src={classic.src}
+                                    alt={classic.alt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-md"
+                                />
+                            </div>
+                            <div className="text-center mt-2">{classic.alt}</div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>  
+
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px] pt-[50px]">
+                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
+                    <div className="flex items-center gap-[10px]">
+                        <div className="text-[25px] text-blue-500">
+                            <BiSolidCameraMovie />
+                        </div>
+                        <div className="text-[25px]">
+                            movie
+                        </div>
+                    </div>
+                    <div className="text-blue-500">
+                        Show More
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
+                <Slider {...settings_2}> 
+                    {movie.map((movie, index) => (
+                        <div key={index} className="px-2">
+                            <div className="relative w-full h-[270px]">
+                                <Image
+                                    src={movie.src}
+                                    alt={movie.alt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="rounded-md"
+                                />
+                            </div>
+                            <div className="text-center mt-2">{movie.alt}</div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>  
+
+            <div className="lg:px-[300px] px-[10px] flex flex-col gap-[40px] pt-[50px]">
+                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
+                    <div className="flex items-center gap-[10px]">
+                        <div className="text-[25px] text-blue-500">
+                            <SiMyanimelist />
+                        </div>
+                        <div className="text-[25px]">
+                            Anime
+                        </div>
+                    </div>
+                    <div className="text-blue-500">
+                        Show More
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mb-12 lg:px-[300px] py-[20px]"> 
+                <Slider {...settings_2}> 
+                    {anime.map((anime, index) => (
                         <div key={index} className="px-2">
                             <div className="relative w-full h-[270px]">
                                 <Image
@@ -272,157 +509,7 @@ export default function ProductPage(){
                 </Slider>
             </div>  
 
-            <div className="px-[300px] flex flex-col gap-[40px] pt-[50px]">
-                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
-                    <div className="flex items-center gap-[10px]">
-                        <div className="text-[25px] text-blue-500">
-                            <GiTheaterCurtains />
-                        </div>
-                        <div className="text-[25px]">
-                            Theater
-                        </div>
-                    </div>
-                    <div className="text-blue-500">
-                        Show More
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-[10px]">
-                    <div className="bg-blue-100 flex w-[260px] h-[260px] justify-center items-center">
-                        <Image 
-                            src="/images/FUJI_ROCK_2_0205-500.jpg"
-                            width={230}
-                            height={200}
-                            alt="gambar event 1"
-                        />
-                    </div>
-                    <div className="flex w-[260px] h-[50px] justify-center">
-                            FUJI ROCK FESTIVAL '24
-                    </div>
-                </div>
-            </div>
-
-            <div className="px-[300px] flex flex-col gap-[40px] pt-[50px]">
-                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
-                    <div className="flex items-center gap-[10px]">
-                        <div className="text-[25px] text-blue-500">
-                        <MdOutlineSportsSoccer />
-                        </div>
-                        <div className="text-[25px]">
-                            Sports
-                        </div>
-                    </div>
-                    <div className="text-blue-500">
-                        Show More
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-[10px]">
-                    <div className="bg-blue-100 flex w-[260px] h-[260px] justify-center items-center">
-                        <Image 
-                            src="/images/FUJI_ROCK_2_0205-500.jpg"
-                            width={230}
-                            height={200}
-                            alt="gambar event 1"
-                        />
-                    </div>
-                    <div className="flex w-[260px] h-[50px] justify-center">
-                            FUJI ROCK FESTIVAL '24
-                    </div>
-                </div>
-            </div>
-
-            <div className="px-[300px] flex flex-col gap-[40px] pt-[50px]">
-                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
-                    <div className="flex items-center gap-[10px]">
-                        <div className="text-[25px] text-blue-500">
-                            <GiViolin />
-                        </div>
-                        <div className="text-[25px]">
-                            Classic
-                        </div>
-                    </div>
-                    <div className="text-blue-500">
-                        Show More
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-[10px]">
-                    <div className="bg-blue-100 flex w-[260px] h-[260px] justify-center items-center">
-                        <Image 
-                            src="/images/FUJI_ROCK_2_0205-500.jpg"
-                            width={230}
-                            height={200}
-                            alt="gambar event 1"
-                        />
-                    </div>
-                    <div className="flex w-[260px] h-[50px] justify-center">
-                            FUJI ROCK FESTIVAL '24
-                    </div>
-                </div>
-            </div>
-
-            <div className="px-[300px] flex flex-col gap-[40px] pt-[50px]">
-                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
-                    <div className="flex items-center gap-[10px]">
-                        <div className="text-[25px] text-blue-500">
-                            <BiSolidCameraMovie />
-                        </div>
-                        <div className="text-[25px]">
-                            movie
-                        </div>
-                    </div>
-                    <div className="text-blue-500">
-                        Show More
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-[10px]">
-                    <div className="bg-blue-100 flex w-[260px] h-[260px] justify-center items-center">
-                        <Image 
-                            src="/images/FUJI_ROCK_2_0205-500.jpg"
-                            width={230}
-                            height={200}
-                            alt="gambar event 1"
-                        />
-                    </div>
-                    <div className="flex w-[260px] h-[50px] justify-center">
-                            FUJI ROCK FESTIVAL '24
-                    </div>
-                </div>
-            </div>
-
-            <div className="px-[300px] flex flex-col gap-[40px] pt-[50px]">
-                <div className="flex justify-between border-b-[3px] border-blue-500 pb-[15px]">
-                    <div className="flex items-center gap-[10px]">
-                        <div className="text-[25px] text-blue-500">
-                            <SiMyanimelist />
-                        </div>
-                        <div className="text-[25px]">
-                            Anime
-                        </div>
-                    </div>
-                    <div className="text-blue-500">
-                        Show More
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-[10px]">
-                    <div className="bg-blue-100 flex w-[260px] h-[260px] justify-center items-center">
-                        <Image 
-                            src="/images/FUJI_ROCK_2_0205-500.jpg"
-                            width={230}
-                            height={200}
-                            alt="gambar event 1"
-                        />
-                    </div>
-                    <div className="flex w-[260px] h-[50px] justify-center">
-                            FUJI ROCK FESTIVAL '24
-                    </div>
-                </div>
-            </div>
-
-            <div className="bg-gray-200 w-full h-full flex flex-col lg:px-[300px] py-[35px]">
+            <div className="bg-gray-200 w-full h-full flex flex-col lg:px-[300px] px-[10px] py-[35px]">
                 <div className="text-[30px] pb-[20px] font-bold">
                     Important Notices
                 </div>
@@ -471,7 +558,7 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="lg:px-[300px] bg-blue-500 pb-[50px]">
+            <div className="lg:px-[300px] px-[10px] bg-blue-500 pb-[50px]">
                 <div className="text-white text-[35px] py-[20px]">
                     Search By Area
                 </div>
@@ -499,7 +586,7 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="lg:px-[300px] flex flex-col justify-center items-center py-[20px] gap-[10px]">
+            <div className="lg:px-[300px] px-[10px] flex flex-col justify-center items-center py-[20px] gap-[10px]">
                 <div className="text-[50px] font-bold text-blue-400">
                     チケット購入方法
                 </div>
@@ -507,7 +594,7 @@ export default function ProductPage(){
                     ファミリーマートでのお支払い
                 </div>
             </div>
-            <div className="w-full h-auto lg:px-[300px] py-[10px]">
+            <div className="w-full h-auto lg:px-[300px] px-[10px] py-[10px]">
                 <Image 
                     src="/images/purchase_pc1b.png"
                     layout="responsive"
@@ -536,7 +623,7 @@ export default function ProductPage(){
 
             
             <div className="bg-blue-100 w-full h-full flex flex-col py-[30px]">
-                <div className="lg:px-[200px] py-[30px]">
+                <div className="lg:px-[200px] px-[10px] py-[30px] text-center lg:text-justify">
                     Ticket Pia is one of the largest ticket sales sites in Japan. You can reserve and purchase tickets for live shows, concerts, theater, sports, classical music, Korean pop, anime, movies, and more.
                 </div>
                 <div className="flex items-center justify-center gap-[20px]">
