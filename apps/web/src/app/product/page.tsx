@@ -1,11 +1,22 @@
+'use client'
 import Image from "next/image"
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { useState } from "react";
+
 
 export default function ProductPage(){
+    const images = [
+        "/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg",
+        "/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg",
+        "/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg"
+    ];
+
+    const [selectedImage, setSelectedImage] = useState(images[0]);
+    
     return(
         <>
-            <div className="bg-blue-500 w-full h-full flex justify-between px-[300px] py-[20px]">
+            <div className="bg-blue-500 w-full h-full flex justify-between lg:px-[300px] py-[20px]">
                 <div className="text-white font-bold text-[30px]">
                     "WRESTLE PETER PAN 2024 7/21"
                 </div>
@@ -14,8 +25,8 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="flex py-[20px] gap-[10px]">
-                <div className="flex flex-[40%] justify-end py-[10px]">
+            <div className="flex flex-col lg:flex-row py-[20px] gap-[10px]">
+                <div className="flex flex-[40%] lg:justify-end items-center justify-center py-[10px]">
                     <Image 
                         src="/images/plan_img_tqxpajPT.png"
                         width={300}
@@ -23,8 +34,8 @@ export default function ProductPage(){
                         alt="gambar event"
                     />
                 </div>
-                <div className="flex justify-start flex-[50%]">
-                    <div className="flex flex-col">
+                <div className="flex justify-start lg:flex-[50%]">
+                    <div className="flex flex-col w-full lg:w-[600px]">
                         <div className="flex justify-between border-b py-4 px-[10px]">
                             <div className="font-bold text-gray-700 w-[250px]">
                                 Venue
@@ -69,47 +80,39 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="px-[300px] py-[20px]">
+            <div className="lg:px-[300px] py-[20px] text-justify">
                 The recommended space for each person is 1 square meter. On the day of the fireworks, you can reserve your own space within the area to watch the fireworks, but we ask for your understanding and cooperation in not reserving too much space.
-            </div>
-
-            <div className="flex gap-[70px] justify-center pt-[30px]">
-                <div className="w-[250px] bg-red-500 h-[200px] flex">
-                    <Image 
-                        src="/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg"
-                        width={250}
-                        height={400}
-                        alt="gambar event 1"
-                    />
-                </div>
-                <div className="w-[250px] bg-red-500 h-[200px] flex">
-                    <Image 
-                        src="/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg"
-                        width={300}
-                        height={400}
-                        alt="gambar event 2"
-                    />
-                </div>
-                <div className="w-[250px] bg-red-500 h-[200px] flex">
-                    <Image 
-                        src="/images/plan_slides_img_E5C4E2BC424115DB3117BA587236F902.jpg"
-                        width={300}
-                        height={400}
-                        alt="gambar event 3"
-                        />
-                    </div>
             </div>
             
             <div className="flex justify-center pt-[50px]">
-                <Image 
-                    src="/images/1648631190_5.jpg"
-                    width={600}
-                    height={400}
-                    alt="gambar event"
+                <Image
+                src={selectedImage}
+                width={600}
+                height={400}
+                alt="Selected event image"
+                className="rounded-md object-cover"
                 />
             </div>
 
-            <div className="flex flex-col px-[300px] py-[60px]">
+            <div className="flex gap-[70px] justify-center pt-[30px]">
+                {images.map((image, index) => (
+                <div
+                    key={index}
+                    className="w-[250px] h-[200px] flex cursor-pointer"
+                    onClick={() => setSelectedImage(image)}
+                >
+                    <Image
+                    src={image}
+                    width={250}
+                    height={200}
+                    alt={`Event image ${index + 1}`}
+                    className="rounded-md object-cover"
+                    />
+                </div>
+                ))}
+            </div>
+
+            <div className="flex flex-col lg:px-[300px] py-[60px]">
                 <div className="bg-red-500 text-white text-[30px] w-full rounded flex justify-center py-[5px]">
                     Important Notes
                 </div>
@@ -135,7 +138,7 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="flex flex-col px-[300px] py-[20px]">
+            <div className="flex flex-col lg:px-[300px] py-[20px]">
                 <div className="text-[25px] font-bold text-blue-800 pb-[10px]">
                     Sales Information
                 </div>
@@ -177,12 +180,12 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="flex flex-col py-[20px] px-[300px]">
+            <div className="flex flex-col py-[20px] lg:px-[300px]">
                 <div className="text-[25px] font-bold text-blue-800 pb-[10px]">
                     Tickets
                 </div>
-                <div className="flex shadow px-[15px] py-4">
-                    <div className="flex flex-col flex-[50%]">
+                <div className="flex flex-col lg:flex-row shadow px-[15px] py-4">
+                    <div className="flex flex-col flex-[50%] border-b border-black pb-[20px] lg:pb-[0px] lg:border-white">
                         <div>
                             Arena Seat 15,000 yen *Price is per person
                         </div>
@@ -196,7 +199,7 @@ export default function ProductPage(){
                             *If you are using a wheelchair, please contact ddt@ddtpro.co.jp in advance. Please note that due to the structure of the venue, we may ask you to specify the type of seat and the location of the seat.
                         </div>
                     </div>
-                    <div className="flex flex-col flex-[50%] items-end">
+                    <div className="flex flex-col flex-[50%] items-center lg:items-end pt-[20px] lg-[0px]">
                         <div>
                             Please select a seat type
                         </div>
@@ -230,7 +233,7 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="flex flex-col py-[20px] px-[300px]">
+            <div className="flex flex-col py-[20px] lg:px-[300px]">
                 <div className="text-[25px] font-bold text-blue-800 pb-[10px]">
                     Contact
                 </div>
@@ -248,7 +251,7 @@ export default function ProductPage(){
                 </div>
             </div>
 
-            <div className="flex flex-col py-[20px] px-[300px]">
+            <div className="flex flex-col py-[20px] lg:px-[300px]">
                 <div className="text-[25px] font-bold text-blue-800 pb-[10px]">
                     Reviews
                 </div>

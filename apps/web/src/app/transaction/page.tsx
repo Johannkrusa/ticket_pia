@@ -6,10 +6,10 @@ export default function Transaction(){
     return(
         <>
             <div className="lg:px-[200px] pt-[20px]">
-                <div className="text-[35px] font-bold">
+                <div className="flex text-[35px] font-bold justify-center lg:justify-start">
                     Transactions
                 </div>
-                <div className="flex flex-col lg:flex-row gap-[20px] pt-[20px] justify-center lg:px-[150px] lg:justify-start">
+                <div className="flex flex-col lg:flex-row gap-[20px] pt-[20px] justify-center px-[10px] lg:px-[150px] lg:justify-start">
                     <div>
                         Sort By
                     </div>
@@ -28,14 +28,14 @@ export default function Transaction(){
                     </div>
                 </div>
 
-                <div className="flex items-center pt-[30px] pb-[50px] justify-center">
-                    <div className="rounded flex justify-center w-[1000px] h-full shadow-xl px-[25px] gap-[20px] border-t-4 border-blue-500">
-                        <div className="flex flex-col w-[100%]">
+                <div className="flex items-center pt-[30px] pb-[50px] justify-center px-[10px]">
+                    <div className="rounded flex justify-center w-[1000px] h-full shadow-xl lg:px-[25px] gap-[20px] border-t-4 border-blue-500">
+                        <div className="flex flex-col w-[100%] px-[15px]">
                             <div className="w-[100%] flex pt-[10px] border-b border-black justify-center items-center">
                                 <div className="flex text-[30px] flex-[2%] justify-center items-center py-[5px] ">
                                     <IoTicketSharp />
                                 </div>
-                                <div className="flex flex-col flex-[70%] gap-[10px]">
+                                <div className="flex flex-col flex-[70%] gap-[10px] pl-[15px] text-[16px] lg:text-[20px]">
                                     <div>
                                         (transaction id)
                                     </div>
@@ -50,7 +50,7 @@ export default function Transaction(){
                                 </div>
                             </div>
 
-                            <div className="flex pt-[20px]">
+                            <div className="flex pt-[20px] gap-[20px]">
                                 <div className="flex">
                                     <div className="py-[10px]">
                                         <Image 
@@ -58,10 +58,11 @@ export default function Transaction(){
                                             width={260}
                                             height={358}
                                             alt="gambar event"
+                                            className="w-[100px] lg:w-[260px]"
                                         />
                                     </div>
                                 </div>
-                                <div className="flex flex-col w-[100%] items-start gap-[20px] px-[20px]">
+                                <div className="flex flex-col w-[100%] items-start gap-[20px] px-[10px] text-[16px] lg:text-[20px]">
                                     <div className="font-bold">
                                         ONE OK ROCK 2024 PREMONITION WORLD TOUR in Tokyo
                                     </div>
@@ -78,7 +79,7 @@ export default function Transaction(){
                             </div>
 
 
-                            <div className="flex w-[100%] justify-end items-center pt-[5px] text-blue-500 hover:text-blue-200 cursor-pointer">
+                            <div className="flex w-[100%] justify-end items-center pt-[20px] text-blue-500 hover:text-blue-200 cursor-pointer">
                                 <div>
                                     Transaction Details
                                 </div>
