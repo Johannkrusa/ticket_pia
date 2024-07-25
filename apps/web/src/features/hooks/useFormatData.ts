@@ -1,4 +1,4 @@
-import { hashPassword } from './hashPassword.helper';
+
 
 export const formatUserData = async (
   firstName?: string,
@@ -10,7 +10,6 @@ export const formatUserData = async (
   uppercasedFirstName?: string;
   uppercasedLastName?: string;
   lowercasedEmail?: string;
-  hashedPassword?: string;
   formattedTime?: string;
   formattedDate?: string;
   dayOfWeek?: string;
@@ -21,7 +20,6 @@ export const formatUserData = async (
     const uppercasedFirstName = firstName?.toUpperCase();
     const uppercasedLastName = lastName?.toUpperCase();
     const lowercasedEmail = email?.toLowerCase();
-    const hashedPassword = password ? await hashPassword(password) : undefined;
 
     let formattedTime: string | undefined;
     let formattedDate: string | undefined;
@@ -69,7 +67,6 @@ export const formatUserData = async (
       uppercasedFirstName,
       uppercasedLastName,
       lowercasedEmail,
-      hashedPassword,
       formattedTime,
       formattedDate,
       dayOfWeek,
@@ -81,7 +78,7 @@ export const formatUserData = async (
   }
 };
 
-export const formatToCamelCase = (input?: string): string => {
+export const formatToCamelCase = (input?: string): string | undefined=> {
   if (!input) {
     return ''; // or return a default value if needed
   }
@@ -99,4 +96,12 @@ export const formatToUpperCase = (input?: string): string => {
   }
 
   return input.toUpperCase().split('_').join(' ');
+};
+
+export const bytesToMega = (bytes?: any): any | undefined => {
+  if (bytes === undefined) {
+    return undefined;
+  }
+
+  return bytes / (1024 * 1024);
 };

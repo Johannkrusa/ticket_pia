@@ -1,73 +1,32 @@
 'use client';
 
-import { registerSchema } from '@/features/register/register.schema';
-import { Field, Form, Formik, ErrorMessage } from 'formik';
-import React, { useState } from 'react';
+import { registerUserSchema } from '@/features/register/registerUser.schema';
+import { Field, Form, Formik } from 'formik';
+import React from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import CustomErrorMessageComponent from '@/components/CustomErrorMessage';
+import { usePostCreateUser } from '@/features/register/hooks/usePostCreateUser.hook';
+import {
+  generateYearOptions,
+  generateMonthOptions,
+  generateDayOptions,
+} from '../../../features/register/hooks/dateOptions.hook';
+import { usePasswordVisibility } from '@/features/register/hooks/usePasswordVisibility.hook';
 
-export default function RegisterPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+export default function RegisterUserPage() {
+  const { mutationCreateUser, isPending } = usePostCreateUser();
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword((prevState) => !prevState);
-  };
-
-  const generateYearOptions = () => {
-    const currentYear = new Date().getFullYear();
-    const years = [];
-    for (let year = currentYear; year >= 1900; year--) {
-      years.push(
-        <option key={year} value={year}>
-          {year}
-        </option>,
-      );
-    }
-    return years;
-  };
-
-  const generateMonthOptions = () => {
-    const months = [
-      "JANUARY",
-      "FEBRUARY",
-      "MARCH",
-      "APRIL",
-      "MAY",
-      "JUNE",
-      "JULY",
-      "AUGUST",
-      "SEPTEMBER",
-      "OCTOBER",
-      "NOVEMBER",
-      "DECEMBER"
-    ];
-  
-    return months.map((month, i) => (
-      <option key={month[i]} value={i + 1}>
-        {month}
-      </option>
-    ));
-  };
-  
-
-  const generateDayOptions = () => {
-    return Array.from({ length: 31 }, (_, i) => (
-      <option key={i + 1} value={i + 1}>
-        {i + 1}
-      </option>
-    ));
-  };
-
-  const currentYear = new Date().getFullYear();
+  const {
+    showPassword,
+    showConfirmPassword,
+    togglePasswordVisibility,
+    toggleConfirmPasswordVisibility,
+  } = usePasswordVisibility();
 
   const initialValues = {
     email: '',
     password: '',
+    confirm_password: '',
     first_name: '',
     last_name: '',
     gender: null,
@@ -77,6 +36,7 @@ export default function RegisterPage() {
       day: '',
     },
     phone_number: '',
+    email_notificaiton: false,
     terms_checkbox: false,
   };
 
@@ -89,7 +49,7 @@ export default function RegisterPage() {
           alt=""
           className="mb-20"
         />
-        <h2 className="text-4xl font-bold mb-20 text-center">
+        <h2 className="text-3xl font-bold mb-20 text-center">
           REGISTER AS A NEW USER
         </h2>
         <p className="text-center mb-4 font-light">
@@ -98,14 +58,27 @@ export default function RegisterPage() {
         </p>
         <Formik
           initialValues={initialValues}
-          validationSchema={registerSchema}
+          validationSchema={registerUserSchema}
           onSubmit={(values) => {
-            console.log(values);
+            mutationCreateUser({
+              email: values.email,
+              password: values.password,
+              first_name: values.first_name,
+              last_name: values.last_name,
+              gender: values.gender,
+              birthdate: {
+                year: values.birthdate.year,
+                month: values.birthdate.month,
+                day: values.birthdate.day,
+              },
+              phone_number: values.phone_number,
+              email_notification: values.email_notificaiton,
+            });
           }}
         >
           {({ dirty, isValid }) => (
             <Form className="space-y-4">
-              <h1 className="text-center font-semibold text-xl p-2 border-b-2 border-gray-300 mb-8">
+              <h1 className="text-center font-semibold text-xl sm:text-2xl  p-2 border-b-2 border-gray-300 mb-8">
                 Account Information
               </h1>
               <div className="">
@@ -115,11 +88,11 @@ export default function RegisterPage() {
                     <div className="flex items-center">
                       <label
                         htmlFor="email"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         PIA MEMBER ID
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -133,7 +106,7 @@ export default function RegisterPage() {
                       name="email"
                       type="email"
                       placeholder="ENTER YOUR EMAIL ADDRESS"
-                      className="w-full text-xl px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                      className="w-full text-md sm:text-xl  px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                       aria-required="true"
                     />
                     <div className="flex items-center justify-center">
@@ -148,11 +121,11 @@ export default function RegisterPage() {
                     <div className="flex items-center align-top">
                       <label
                         htmlFor="password"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         PASSWORD
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -164,7 +137,7 @@ export default function RegisterPage() {
                         name="password"
                         type={showPassword ? 'text' : 'password'}
                         placeholder="ENTER YOUR PASSWORD"
-                        className="w-full text-xl px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                        className="w-full text-md sm:text-xl  px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                         aria-required="true"
                       />
                       <button
@@ -192,18 +165,18 @@ export default function RegisterPage() {
                       <div>
                         <label
                           htmlFor="confirm_password"
-                          className="text-xl font-medium text-gray-700"
+                          className="text-md sm:text-xl  font-medium text-gray-700"
                         >
                           CONFIRM
                         </label>
-                        <span className="text-xl font-medium text-red-500 ml-2">
+                        <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                           *
                         </span>
                       </div>
 
                       <label
                         htmlFor="confirm_password"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         PASSWORD
                       </label>
@@ -216,7 +189,7 @@ export default function RegisterPage() {
                         name="confirm_password"
                         type={showConfirmPassword ? 'text' : 'password'}
                         placeholder="RE-ENTER YOUR PASSWORD"
-                        className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                        className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                         aria-required="true"
                       />
                       <button
@@ -243,11 +216,11 @@ export default function RegisterPage() {
                     <div className="flex items-center">
                       <label
                         htmlFor="first_name"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         FIRST NAME
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -258,7 +231,7 @@ export default function RegisterPage() {
                       name="first_name"
                       type="text"
                       placeholder="ENTER YOUR FIRST NAME"
-                      className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                      className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                       aria-required="true"
                     />
                     <div className="flex items-center justify-center">
@@ -273,11 +246,11 @@ export default function RegisterPage() {
                     <div className="flex items-center">
                       <label
                         htmlFor="last_name"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         LAST NAME
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -288,7 +261,7 @@ export default function RegisterPage() {
                       name="last_name"
                       type="text"
                       placeholder="ENTER YOUR LAST NAME"
-                      className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                      className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                       aria-required="true"
                     />
                     <div className="flex items-center justify-center">
@@ -303,11 +276,11 @@ export default function RegisterPage() {
                     <div className="flex items-center">
                       <label
                         htmlFor="gender"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         GENDER
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -319,30 +292,36 @@ export default function RegisterPage() {
                           id="male"
                           name="gender"
                           type="radio"
-                          value="male"
+                          value="MALE"
                           className="form-radio w-6 h-6"
                         />
-                        <span className="text-xl text-gray-700">MALE</span>
+                        <span className="text-md sm:text-xl  text-gray-700">
+                          MALE
+                        </span>
                       </label>
                       <label className="flex items-center space-x-2">
                         <Field
                           id="female"
                           name="gender"
                           type="radio"
-                          value="female"
+                          value="FEMALE"
                           className="form-radio w-6 h-6 text-gray-600"
                         />
-                        <span className="text-xl text-gray-700">FEMALE</span>
+                        <span className="text-md sm:text-xl  text-gray-700">
+                          FEMALE
+                        </span>
                       </label>
                       <label className="flex items-center space-x-2">
                         <Field
                           id="others"
                           name="gender"
                           type="radio"
-                          value="others"
+                          value="OTHERS"
                           className="form-radio w-6 h-6 text-gray-600"
                         />
-                        <span className="text-xl text-gray-700">OTHERS</span>
+                        <span className="text-md sm:text-xl  text-gray-700">
+                          OTHERS
+                        </span>
                       </label>
                     </div>
                     <div className="flex justify-start items-start">
@@ -351,10 +330,10 @@ export default function RegisterPage() {
                           id="prefer_not_to_say"
                           name="gender"
                           type="radio"
-                          value="null"
+                          value="PREFER_NOT_TO_SAY"
                           className="form-radio w-6 h-6 text-gray-600"
                         />
-                        <span className="text-xl text-gray-700">
+                        <span className="text-md sm:text-xl  text-gray-700">
                           PREFER NOT TO SAY
                         </span>
                       </label>
@@ -368,11 +347,11 @@ export default function RegisterPage() {
                     <div className="flex items-center">
                       <label
                         htmlFor="birthdate"
-                        className="text-xl font-medium text-gray-700"
+                        className="text-md sm:text-xl  font-medium text-gray-700"
                       >
                         BIRTHDATE
                       </label>
-                      <span className="text-xl font-medium text-red-500 ml-2">
+                      <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *
                       </span>
                     </div>
@@ -382,7 +361,7 @@ export default function RegisterPage() {
                       as="select"
                       id="year"
                       name="birthdate.year"
-                      className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                      className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                       aria-required="true"
                     >
                       <option disabled>SELECT YEAR </option>
@@ -392,7 +371,7 @@ export default function RegisterPage() {
                       as="select"
                       id="month"
                       name="birthdate.month"
-                      className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                      className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                       aria-required="true"
                     >
                       <option disabled>SELECT MONTH </option>
@@ -403,7 +382,7 @@ export default function RegisterPage() {
                         as="select"
                         id="day"
                         name="birthdate.day"
-                        className="text-xl w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                        className="text-md sm:text-xl  w-full px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                         aria-required="true"
                       >
                         <option disabled>SELECT DAY </option>
@@ -417,7 +396,7 @@ export default function RegisterPage() {
                 </div>
 
                 {/* CONTACT INFORMATION */}
-                <h1 className="block text-center font-semibold text-xl p-2 mt-20 border-b-2 border-gray-300 mb-8">
+                <h1 className="block text-center font-semibold text-md sm:text-xl  p-2 mt-20 border-b-2 border-gray-300 mb-8">
                   CONTACT INFORMATION
                 </h1>
                 <div className="space-y-4">
@@ -427,13 +406,17 @@ export default function RegisterPage() {
                       <div className="flex items-center">
                         <label
                           htmlFor="phone_number"
-                          className="text-xl font-medium text-gray-700"
+                          className="text-md sm:text-xl  font-medium text-gray-700"
                         >
-                          PHONE NUMBER
+                          PHONE{' '}
+                          <span className="sm:hidden inline text-red-500">
+                            *
+                          </span>{' '}
+                          NUMBER{' '}
+                          <span className="sm:inline hidden text-red-500">
+                            *
+                          </span>
                         </label>
-                        <span className="text-xl font-medium text-red-500 ml-2">
-                          *
-                        </span>
                       </div>
                     </div>
                     <div className="col-span-8">
@@ -442,7 +425,7 @@ export default function RegisterPage() {
                         name="phone_number"
                         type="text"
                         placeholder="ENTER YOUR PHONE NUMBER"
-                        className="w-full text-xl px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
+                        className="w-full text-md sm:text-xl  px-3 py-2 border-b-2 border-gray-300 shadow-sm focus:outline-none focus:border-red-500 focus:ring-red-500 placeholder:italic"
                         aria-required="true"
                       />
                       <div className="flex items-center justify-center">
@@ -453,7 +436,7 @@ export default function RegisterPage() {
                 </div>
 
                 {/* NOTIFICATION SETTINGS */}
-                <h1 className="text-center font-semibold text-xl p-2 border-b-2 border-gray-300">
+                <h1 className="text-center font-semibold text-md sm:text-xl  p-2 border-b-2 border-gray-300">
                   NOTIFICATION SETTINGS
                 </h1>
                 <div className="space-y-4">
@@ -462,18 +445,16 @@ export default function RegisterPage() {
                     <div className="col-span-2">
                       <div className="flex items-center">
                         <label
-                          htmlFor="last_name"
-                          className="text-xl font-medium text-gray-700"
+                          htmlFor="email_notification"
+                          className="text-md sm:text-xl font-medium text-gray-700"
                         >
-                          EMAIL NOTIFICATION
+                          EMAIL <span className="text-red-500">*</span>{' '}
+                          NOTIFICATION
                         </label>
-                        <span className="text-xl font-medium text-red-500 ml-2">
-                          *
-                        </span>
                       </div>
                     </div>
                     <div className="col-span-8 space-y-4">
-                      <div className="flex space-x-20 ">
+                      <div className="flex space-x-8 sm:space-x-20">
                         <label className="flex items-center align-middle space-x-2">
                           <Field
                             id="email_notification"
@@ -483,7 +464,7 @@ export default function RegisterPage() {
                             className="form-radio h-6 w-6 text-gray-600"
                           />
                           <div className="flex flex-col">
-                            <span className="text-xl text-gray-700">
+                            <span className="text-md sm:text-xl  text-gray-700">
                               RECEIVE AN EMAIL
                             </span>
                             <span className="text-md text-red-500">
@@ -499,7 +480,7 @@ export default function RegisterPage() {
                             value="false"
                             className="form-radio w-6 h-6 text-gray-600"
                           />
-                          <span className="text-xl text-gray-700">
+                          <span className="text-md sm:text-xl  text-gray-700">
                             DO NOT RECEIVE
                           </span>
                         </label>
@@ -587,19 +568,28 @@ export default function RegisterPage() {
                   >
                     I AGREE TO THE TERMS AND CONDITIONS AND PRIVACY POLICY
                   </label>
+                  <div className="absolute items-center justify-center">
+                    <CustomErrorMessageComponent name="terms_checkbox" />
+                  </div>
                 </div>
 
                 <div className="py-2 px-4 flex flex-col items-center">
                   <button
                     type="submit"
-                    disabled={!isValid}
+                    disabled={!isValid || isPending}
                     className={`w-[60%] h-14 mt-4 ${
                       !isValid
                         ? 'bg-red-500 cursor-not-allowed'
-                        : 'bg-blue-400 hover:bg-blue-500'
+                        : isPending
+                          ? 'bg-gray-500 cursor-not-allowed'
+                          : 'bg-blue-400 hover:bg-blue-500'
                     } text-white font-semibold rounded-md shadow-sm focus:outline-none`}
                   >
-                    {isValid ? 'REGISTER' : 'Input is not yet completed'}
+                    {isPending
+                      ? 'REGISTERING'
+                      : !isValid
+                        ? 'Invalid Input'
+                        : 'Register'}
                   </button>
                 </div>
               </div>

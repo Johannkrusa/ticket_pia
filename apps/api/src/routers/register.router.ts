@@ -1,8 +1,10 @@
-import { authenticateUser } from '@/controllers/authenticate.controllers';
-import { validateLoginCredentials } from '@/middlewares/validateLoginCredentials.middleware';
+import { registerOrganizer, registerUser } from '@/controllers/register.controller';
+import { validateRegisterOrganizer } from '@/middlewares/validateRegisterOrganizer.middleware';
+import { validateRegisterUser } from '@/middlewares/validateRegisterUser.middleware';
 import { Router } from 'express';
 const router = Router();
 
-router.post('/', )
+router.post('/user', validateRegisterUser, registerUser )
+router.post('/organizer', validateRegisterOrganizer, registerOrganizer)
 
 export default router;

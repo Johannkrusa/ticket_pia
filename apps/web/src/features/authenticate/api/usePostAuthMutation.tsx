@@ -3,8 +3,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import { axiosInstance } from '../../utils/axiosInstances';
-import { IAuth } from './auth.types';
+import { axiosInstance } from '@/utils/axiosInstances';
+import { IAuth } from '../auth.types';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '@/redux/slices/auth.slice';
 
@@ -12,15 +12,15 @@ export const usePostAuthLogin = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { mutate: mutationAuth, isPending } = useMutation({
-    mutationFn: async ({ email, password}: IAuth) => {
+  const { mutate: mutationAuthLogin, isPending } = useMutation({
+    mutationFn: async ({ email, password }: IAuth) => {
       console.log(email, password);
       return await axiosInstance.post('/auth', {
         email,
         password,
       });
     },
-    onSuccess: (response, {keep_login}) => {
+    onSuccess: (response, { keep_login }) => {
       toast.success(response.data.message);
       dispatch(setAuth(response.data.data));
 
@@ -32,15 +32,14 @@ export const usePostAuthLogin = () => {
       router.push('/');
     },
     onError: (error: any) => {
-      if (error.response) {
-        console.log(error);
-        toast.error(error);
-      }
+      const errorMessage =
+        error.response?.data?.message || 'Registration failed';
+      toast.error(errorMessage);
     },
   });
 
   return {
-    mutationAuth,
+    mutationAuthLogin,
     isPending,
   };
 };

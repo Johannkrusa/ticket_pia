@@ -35,8 +35,8 @@
     cursor: pointer;
 }
 
-.ticket-gradient-blue{
-    gradient
-} 
+.ticket-gradient-blue {
+    background: linear-gradient(to right, #0000ff, #00ffff);
+}
 
  
