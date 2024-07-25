@@ -133,142 +133,232 @@ const users = [
 
 const locations = [
   {
-    city: 'TOKYOBU',
+    city: 'TOKYOBU', //1
     venue: 'TOKYO_TAIKUKAN',
     address: 'TOKYO',
     regionId: 4, // KANTO
   },
   {
-    city: 'CHIBAKEN',
+    city: 'CHIBAKEN', //2
     venue: 'MAKUHARIMESSE_KOKUSAITENJIJOU',
     address: 'CHIBA',
     regionId: 4, // KANTO
   },
   {
-    city: 'OSAKA',
+    city: 'OSAKA', //3
     venue: 'OSAKA_JO_HALL',
     address: 'OSAKA',
     regionId: 3, // KANSAI
   },
   {
-    city: 'KYOTO',
+    city: 'KYOTO', //4
     venue: 'KYOTO_CONCERT_HALL',
     address: 'KYOTO',
     regionId: 3, // KANSAI
   },
   {
-    city: 'SAPPORO',
+    city: 'SAPPORO', //5
     venue: 'SAPPORO_DOME',
     address: 'SAPPORO',
     regionId: 1, // HOKKAIDO
   },
   {
-    city: 'FUKUOKA',
+    city: 'FUKUOKA', //6
     venue: 'FUKUOKA_YAHUOKU_DOME',
     address: 'FUKUOKA',
     regionId: 6, // KYUUSHUU_OKINAWA
   },
   {
-    city: 'NAGOYA',
+    city: 'NAGOYA', //7
     venue: 'NAGOYA_DOME',
     address: 'NAGOYA',
     regionId: 5, // CHUUBU_HOKURIKU
   },
   {
-    city: 'HIROSHIMA',
+    city: 'HIROSHIMA', //8
     venue: 'HIROSHIMA_GREEN_ARENA',
     address: 'HIROSHIMA',
     regionId: 6, // KYUUSHUU_OKINAWA
   },
   {
-    city: 'SENDAI',
+    city: 'SENDAI', //9
     venue: 'SENDAI_SUNPLAZA_HALL',
     address: 'SENDAI',
     regionId: 2, // TOHOKU
   },
   {
-    city: 'OKINAWA',
+    city: 'OKINAWA', //10
     venue: 'OKINAWA_ARENA',
     address: 'OKINAWA',
     regionId: 6, // KYUUSHUU_OKINAWA
   },
   {
-    city: 'NAGOYA',
+    city: 'NAGOYA', //11
     venue: 'Port_Messe_Nagoya_Exhibition_Hall_1',
     address: 'NAGOYA',
     regionId: 5, // CHUUBU_HOKURIKU
   },
   {
-    city: 'YOKOHAMA',
+    city: 'YOKOHAMA', //12
     venue: 'Nissan_Stadium',
     address: 'YOKOHAMA',
     regionId: 4, // KANTO
   },
   {
-    city: 'FUKUOKA',
+    city: 'FUKUOKA', //13
     venue: 'Marine_Messe_Fukuoka_Hall_A',
     address: 'FUKUOKA',
     regionId: 6, // KYUUSHUU_OKINAWA
   },
   {
-    city: 'KOBE',
+    city: 'KOBE', //14
     venue: 'World_Memorial_Hall',
     address: 'KOBE',
     regionId: 3, // KANSAI
   },
   {
-    city: 'TOKYO',
+    city: 'TOKYO', //15
     venue: 'Yoyogi_National_Gymnasium',
     address: 'TOKYO',
     regionId: 4, // KANTO
   },
   {
-    city: 'OSAKA',
+    city: 'OSAKA', //16
     venue: 'Zepp_Osaka_Bayside',
     address: 'OSAKA',
     regionId: 3, // KANSAI
   },
   {
-    city: 'OSAKA',
+    city: 'OSAKA', //17
     venue: 'Yanmar_Stadium_Nagai',
     address: 'OSAKA',
     regionId: 3, // KANSAI
   },
   {
-    city: 'SAITAMA',
+    city: 'SAITAMA', //18
     venue: 'Saitama_Stadium',
     address: 'SAITAMA',
     regionId: 4, // KANTO
   },
   {
-    city: 'YOKOHAMA',
+    city: 'YOKOHAMA', //19
     venue: 'Yokohama_Buntai_Arena',
     address: 'YOKOHAMA',
     regionId: 4, // KANTO
   },
   {
-    city: 'TOKYO',
+    city: 'TOKYO', //20
     venue: 'Kabuki_Za_Theatre',
     address: 'TOKYO',
     regionId: 4, // KANTO
   },
   {
-    city: 'TOKYO',
+    city: 'TOKYO', //21
     venue: 'Toho_Cinemas_Roppongi_Hills',
     address: 'TOKYO',
     regionId: 4, // KANTO
   },
   {
-    city: 'TOKYO',
+    city: 'TOKYO', //22
     venue: 'Tokyo_Opera_City_Concert_Hall',
     address: 'TOKYO',
     regionId: 4, // KANTO
   },
   {
-    city: 'TOKYO',
+    city: 'TOKYO', //23
     venue: 'Ajinomoto_Stadium',
     address: 'TOKYO',
     regionId: 4, // KANTO
+  },
+  {
+    city: 'TOKYO', //24
+    venue: 'Toyosu_PIT',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'KANAGAWA', //25
+    venue: 'Shonan_BMW_Stadium_Hiratsuka',
+    address: 'KANAGAWA',
+    regionId: 4, // 
+  },
+  {
+    city: 'HYOGO', //26
+    venue: 'Noevir_Stadium_Kobe',
+    address: 'HYOGO',
+    regionId: 3, // 
+  },
+  {
+    city: 'KANAGAWA', //27
+    venue: 'Kawasaki_Todoroki_Stadium',
+    address: 'KANAGAWA',
+    regionId: 4, // 
+  },
+  {
+    city: 'TOKYO', //28
+    venue: 'Shinjuku_Wald_9_Cinema',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'TOKYO', //29
+    venue: 'Akihabara_UDX_Theater',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'TOKYO', //30
+    venue: 'National_Theatre_of_Japan',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'KYOTO', //31
+    venue: 'Minami_za_Theatre',
+    address: 'KYOTO',
+    regionId: 3, // 
+  },
+  {
+    city: 'TOKYO', //32
+    venue: 'Sumida_Triphony_Hall',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'OSAKA', //33
+    venue: 'Osaka_Symphony_Hall',
+    address: 'OSAKA',
+    regionId: 3, // 
+  },
+  {
+    city: 'AICHI', //34
+    venue: 'Toyota Stadium',
+    address: 'AICHI',
+    regionId: 5, // 
+  },
+  {
+    city: 'SAGA', //35
+    venue: 'Ekimae_Real_Estate_Stadium',
+    address: 'SAGA',
+    regionId: 6, // 
+  },
+  {
+    city: 'TOKYO', //36
+    venue: 'Shibuya_Hikarie_Hall',
+    address: 'TOKYO',
+    regionId: 4, // 
+  },
+  {
+    city: 'KYOTO', //37
+    venue: 'Kyoto_Minami_za_Theatre',
+    address: 'KYOTO',
+    regionId: 3, // 
+  },
+  {
+    city: 'TOKYO', //38
+    venue: 'Tokyo_National_Noh_Theatre',
+    address: 'TOKYO',
+    regionId: 4, // 
   },
 ];
 
@@ -298,66 +388,65 @@ const createOrganizersArray = async () => {
 
     const organizers = [
       {
-        userId: userIds[0],
+        userId: userIds[0], //0
         name: 'TOKYO_COOL_KIDS_COMITTEE',
         email: 'tokyocoolkids@example.com',
         phoneNumber: '081899215531',
       },
       {
-        userId: userIds[1],
+        userId: userIds[1], //1
         name: 'ASAHI_PRODUCTION',
         email: 'asahiproduction@example.com',
         phoneNumber: '029301283123',
       },
       {
-        userId: userIds[1],
+        userId: userIds[1], //2
         name: 'MELODIC_MOMENTS',
         email: 'melodicmoments@example.com',
         phoneNumber: '081357394857',
       },
       {
-        userId: userIds[0],
+        userId: userIds[0], //3
         name: 'AMPLIFY_PRODUCTIONS',
         email: 'amplifyproductions@example.com',
         phoneNumber: '081339472945',
       },
       {
-        userId: userIds[2],
+        userId: userIds[2], //4
         name: 'STELLAR_CONCERTS',
         email: 'stellarconcerts@example.com',
         phoneNumber: '081315382948',
       },
       {
-        userId: userIds[1],
+        userId: userIds[1], //5
         name: 'SONIC_SURGE_EVENTS',
         email: 'sonicsurgeevents@example.com',
         phoneNumber: '081337583753',
       },
       {
-        userId: userIds[0],
+        userId: userIds[0], //6
         name: 'GRAND_SLAM_SPORTS',
         email: 'grandslamsports@example.com',
         phoneNumber: '081324859385',
       },
       {
-        userId: userIds[1],
+        userId: userIds[1], //7
         name: 'VICTORY_SPORTS_MANAGEMENT',
         email: 'victorysportsmanagement@example.com',
         phoneNumber: '081338593042',
       },
       {
-        userId: userIds[2],
+        userId: userIds[2], //8
         name: 'STAGE_CRAFT_EVENTS',
         email: 'stagecraftevents@example.com',
         phoneNumber: '081374837465',
       },
       {
-        userId: userIds[3],
+        userId: userIds[3], //9
         name: 'HARMONY_EVENTS',
         email: 'harmonyevents@example.com',
         phoneNumber: '081318475830',
       },
-
     ];
 
     return organizers;
@@ -491,6 +580,96 @@ const createEventsArray = async () => {
         genreId: 1,
         locationId: 23,
         organizerId: organizerIds[5],
+      },
+      {
+        title: 'OneRepublic_Japan_Tour', //18
+        genreId: 1,
+        locationId: 24,
+        organizerId: organizerIds[5],
+      },
+      {
+        title: 'Shonan_Bellmare_vs_Yokohama_FC', //19
+        genreId: 2,
+        locationId: 25,
+        organizerId: organizerIds[7],
+      },
+      {
+        title: 'Vissel_Kobe_vs_Urawa_Red_Diamonds', //20
+        genreId: 2,
+        locationId: 26,
+        organizerId: organizerIds[7],
+      },
+      {
+        title: 'Kawasaki_Frontale_vs_FC_Tokyo', //21
+        genreId: 2,
+        locationId: 27,
+        organizerId: organizerIds[7],
+      },
+      {
+        title: 'Anime_Premiere_of_Mystic_Warriors_of_the_Dawn', //22
+        genreId: 6,
+        locationId: 28,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Anime_Premiere_of_Guardians_of_the_Infinite_Realm', //23
+        genreId: 6,
+        locationId: 29,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Journey_Through_Time_-_A_Historical_Play', //24
+        genreId: 3,
+        locationId: 30,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Samurai_Saga_-_A_Theatrical_Adventure', //25
+        genreId: 3,
+        locationId: 31,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Echoes_of_Eternity_-_An_Evening_of_Classical_Music', //26
+        genreId: 4,
+        locationId: 32,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Harmony_of_the_Spheres_-_An_Orchestral_Night', //27
+        genreId: 4,
+        locationId: 33,
+        organizerId: organizerIds[4],
+      },
+      {
+        title: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima', //28
+        genreId: 2,
+        locationId: 34,
+        organizerId: organizerIds[7],
+      },
+      {
+        title: 'Sagan_Tosu_vs_Vegalta_Sendai', //29
+        genreId: 2,
+        locationId: 35,
+        organizerId: organizerIds[7],
+      },
+      {
+        title: 'Anime_Premiere_of_Celestial_Guardians', //30
+        genreId: 6,
+        locationId: 36,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'Mysteries_of_the_Samurai_-_A_Theatrical_Experience', //31
+        genreId: 3,
+        locationId: 37,
+        organizerId: organizerIds[2],
+      },
+      {
+        title: 'The_Enchanted_Forest_-_A_Fantasy_Play', //32
+        genreId: 3,
+        locationId: 38,
+        organizerId: organizerIds[2],
       },
     ];
 
@@ -643,6 +822,111 @@ const schedules = [
     endDate: new Date('2024-09-15T00:00:00Z'),
     startTime: new Date('2024-09-15T15:30:00Z'),
     endTime: new Date('2024-09-15T17:30:00Z'),
+  },
+  {
+    eventId: 18, //21
+    startDate: new Date('2024-08-15T00:00:00Z'),
+    endDate: new Date('2024-08-15T00:00:00Z'),
+    startTime: new Date('2024-08-15T18:00:00Z'),
+    endTime: new Date('2024-08-15T20:00:00Z'),
+  },
+  {
+    eventId: 19, //22
+    startDate: new Date('2024-08-18T00:00:00Z'),
+    endDate: new Date('2024-08-18T00:00:00Z'),
+    startTime: new Date('2024-08-18T15:30:00Z'),
+    endTime: new Date('2024-08-18T17:30:00Z'),
+  },
+  {
+    eventId: 20, //23
+    startDate: new Date('2024-09-07T00:00:00Z'),
+    endDate: new Date('2024-09-07T00:00:00Z'),
+    startTime: new Date('2024-09-07T17:00:00Z'),
+    endTime: new Date('2024-09-07T19:00:00Z'),
+  },
+  {
+    eventId: 21, //24
+    startDate: new Date('2024-10-20T00:00:00Z'),
+    endDate: new Date('2024-10-20T00:00:00Z'),
+    startTime: new Date('2024-10-20T14:00:00Z'),
+    endTime: new Date('2024-10-20T16:00:00Z'),
+  },
+  {
+    eventId: 22, //25
+    startDate: new Date('2024-11-02T00:00:00Z'),
+    endDate: new Date('2024-11-02T00:00:00Z'),
+    startTime: new Date('2024-11-02T17:00:00Z'),
+    endTime: new Date('2024-11-02T19:00:00Z'),
+  },
+  {
+    eventId: 23, //26
+    startDate: new Date('2024-12-06T00:00:00Z'),
+    endDate: new Date('2024-12-06T00:00:00Z'),
+    startTime: new Date('2024-12-06T18:00:00Z'),
+    endTime: new Date('2024-12-06T20:00:00Z'),
+  },
+  {
+    eventId: 24, //27
+    startDate: new Date('2024-10-11T00:00:00Z'),
+    endDate: new Date('2024-10-11T00:00:00Z'),
+    startTime: new Date('2024-10-11T19:00:00Z'),
+    endTime: new Date('2024-10-11T21:00:00Z'),
+  },
+  {
+    eventId: 25, //28
+    startDate: new Date('2024-12-14T00:00:00Z'),
+    endDate: new Date('2024-12-14T00:00:00Z'),
+    startTime: new Date('2024-12-14T18:00:00Z'),
+    endTime: new Date('2024-12-14T20:00:00Z'),
+  },
+  {
+    eventId: 26, //29
+    startDate: new Date('2024-11-15T00:00:00Z'),
+    endDate: new Date('2024-11-15T00:00:00Z'),
+    startTime: new Date('2024-11-15T19:00:00Z'),
+    endTime: new Date('2024-11-15T21:00:00Z'),
+  },
+  {
+    eventId: 27, //30
+    startDate: new Date('2024-01-20T00:00:00Z'),
+    endDate: new Date('2024-01-20T00:00:00Z'),
+    startTime: new Date('2024-01-20T18:30:00Z'),
+    endTime: new Date('2024-01-20T20:30:00Z'),
+  },
+  {
+    eventId: 28, //31
+    startDate: new Date('2024-10-27T00:00:00Z'),
+    endDate: new Date('2024-10-27T00:00:00Z'),
+    startTime: new Date('2024-10-27T16:00:00Z'),
+    endTime: new Date('2024-10-27T18:00:00Z'),
+  },
+  {
+    eventId: 29, //32
+    startDate: new Date('2024-11-09T00:00:00Z'),
+    endDate: new Date('2024-11-09T00:00:00Z'),
+    startTime: new Date('2024-11-09T15:00:00Z'),
+    endTime: new Date('2024-11-09T17:00:00Z'),
+  },
+  {
+    eventId: 30, //33
+    startDate: new Date('2024-12-21T00:00:00Z'),
+    endDate: new Date('2024-12-21T00:00:00Z'),
+    startTime: new Date('2024-12-21T17:00:00Z'),
+    endTime: new Date('2024-12-21T19:00:00Z'),
+  },
+  {
+    eventId: 31, //34
+    startDate: new Date('2024-02-10T00:00:00Z'),
+    endDate: new Date('2024-02-10T00:00:00Z'),
+    startTime: new Date('2024-02-10T18:00:00Z'),
+    endTime: new Date('2024-02-10T20:00:00Z'),
+  },
+  {
+    eventId: 32, //35
+    startDate: new Date('2024-03-24T00:00:00Z'),
+    endDate: new Date('2024-03-24T00:00:00Z'),
+    startTime: new Date('2024-03-24T17:30:00Z'),
+    endTime: new Date('2024-03-24T19:30:00Z'),
   },
 ];
 
@@ -1088,6 +1372,446 @@ const eventTickets = [
     qty: 200,
     details: 'ONE_OK_ROCK'
   },
+  {
+    name: 'ONE_REPUBLIC_REGULAR',
+    eventId: 18,
+    scheduleId: 21,
+    className: 'ONE_DAY_REGULAR',
+    price: 12500,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'ONE_REPUBLIC'
+  },
+  {
+    name: 'Shonan_Bellmare_vs_Yokohama_FC_VIP',
+    eventId: 19,
+    scheduleId: 22,
+    className: 'ONE_DAY_REGULAR',
+    price: 25000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+  },
+  {
+    name: 'Shonan_Bellmare_vs_Yokohama_FC_PREMIUM',
+    eventId: 19,
+    scheduleId: 22,
+    className: 'ONE_DAY_REGULAR',
+    price: 18000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+  },
+  {
+    name: 'Shonan_Bellmare_vs_Yokohama_FC_CATEGORY_1',
+    eventId: 19,
+    scheduleId: 22,
+    className: 'ONE_DAY_REGULAR',
+    price: 10500,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Shonan_Bellmare_vs_Yokohama_FC'
+  },
+  {
+    name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_VIP',
+    eventId: 20,
+    scheduleId: 23,
+    className: 'ONE_DAY_REGULAR',
+    price: 28000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+  },
+  {
+    name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_PREMIUM',
+    eventId: 20,
+    scheduleId: 23,
+    className: 'ONE_DAY_REGULAR',
+    price: 20000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+  },
+  {
+    name: 'Vissel_Kobe_vs_Urawa_Red_Diamonds_CATEGORY_1',
+    eventId: 20,
+    scheduleId: 23,
+    className: 'ONE_DAY_REGULAR',
+    price: 12000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Vissel_Kobe_vs_Urawa_Red_Diamonds'
+  },
+  {
+    name: 'Kawasaki_Frontale_vs_FC_Tokyo_VIP',
+    eventId: 21,
+    scheduleId: 24,
+    className: 'ONE_DAY_REGULAR',
+    price: 30000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+  },
+  {
+    name: 'Kawasaki_Frontale_vs_FC_Tokyo_PREMIUM',
+    eventId: 21,
+    scheduleId: 24,
+    className: 'ONE_DAY_REGULAR',
+    price: 22000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+  },
+  {
+    name: 'Kawasaki_Frontale_vs_FC_Tokyo_CATEGORY_1',
+    eventId: 21,
+    scheduleId: 24,
+    className: 'ONE_DAY_REGULAR',
+    price: 14000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Kawasaki_Frontale_vs_FC_Tokyo'
+  },
+  {
+    name: 'Mystic_Warriors_of_the_Dawn_VIP',
+    eventId: 22,
+    scheduleId: 25,
+    className: 'ONE_DAY_REGULAR',
+    price: 12000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Mystic_Warriors_of_the_Dawn'
+  },
+  {
+    name: 'Mystic_Warriors_of_the_Dawn_GENERAL',
+    eventId: 22,
+    scheduleId: 25,
+    className: 'ONE_DAY_REGULAR',
+    price: 6000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Mystic_Warriors_of_the_Dawn'
+  },
+  {
+    name: 'Guardians_of_the_Infinite_Realm_VIP',
+    eventId: 23,
+    scheduleId: 26,
+    className: 'ONE_DAY_REGULAR',
+    price: 10000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Guardians_of_the_Infinite_Realm'
+  },
+  {
+    name: 'Guardians_of_the_Infinite_Realm_GENERAL',
+    eventId: 23,
+    scheduleId: 26,
+    className: 'ONE_DAY_REGULAR',
+    price: 5000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Guardians_of_the_Infinite_Realm'
+  },
+  {
+    name: 'Journey_Through_Time_VIP',
+    eventId: 24,
+    scheduleId: 27,
+    className: 'ONE_DAY_REGULAR',
+    price: 18000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Journey_Through_Time'
+  },
+  {
+    name: 'Journey_Through_Time_PREMIUM',
+    eventId: 24,
+    scheduleId: 27,
+    className: 'ONE_DAY_REGULAR',
+    price: 14000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Journey_Through_Time'
+  },
+  {
+    name: 'Journey_Through_Time_CATEGORY_1',
+    eventId: 24,
+    scheduleId: 27,
+    className: 'ONE_DAY_REGULAR',
+    price: 10000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Journey_Through_Time'
+  },
+  {
+    name: 'Samurai_Saga_VIP',
+    eventId: 25,
+    scheduleId: 28,
+    className: 'ONE_DAY_REGULAR',
+    price: 20000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Samurai_Saga'
+  },
+  {
+    name: 'Samurai_Saga_PREMIUM',
+    eventId: 25,
+    scheduleId: 28,
+    className: 'ONE_DAY_REGULAR',
+    price: 15000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Samurai_Saga'
+  },
+  {
+    name: 'Samurai_Saga_CATEGORY_1',
+    eventId: 25,
+    scheduleId: 28,
+    className: 'ONE_DAY_REGULAR',
+    price: 10000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Samurai_Saga'
+  },
+  {
+    name: 'Echoes_of_Eternity_VIP',
+    eventId: 26,
+    scheduleId: 29,
+    className: 'ONE_DAY_REGULAR',
+    price: 18000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Echoes_of_Eternity'
+  },
+  {
+    name: 'Echoes_of_Eternity_PREMIUM',
+    eventId: 26,
+    scheduleId: 29,
+    className: 'ONE_DAY_REGULAR',
+    price: 13000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Echoes_of_Eternity'
+  },
+  {
+    name: 'Echoes_of_Eternity_CATEGORY_1',
+    eventId: 26,
+    scheduleId: 29,
+    className: 'ONE_DAY_REGULAR',
+    price: 9000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Echoes_of_Eternity'
+  },
+  {
+    name: 'Harmony_of_the_Spheres_VIP',
+    eventId: 27,
+    scheduleId: 30,
+    className: 'ONE_DAY_REGULAR',
+    price: 22000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Harmony_of_the_Spheres'
+  },
+  {
+    name: 'Harmony_of_the_Spheres_PREMIUM',
+    eventId: 27,
+    scheduleId: 30,
+    className: 'ONE_DAY_REGULAR',
+    price: 17000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Harmony_of_the_Spheres'
+  },
+  {
+    name: 'Harmony_of_the_Spheres_CATEGORY_1',
+    eventId: 27,
+    scheduleId: 30,
+    className: 'ONE_DAY_REGULAR',
+    price: 12000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Harmony_of_the_Spheres'
+  },
+  {
+    name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_VIP',
+    eventId: 28,
+    scheduleId: 31,
+    className: 'ONE_DAY_REGULAR',
+    price: 27000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+  },
+  {
+    name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_PREMIUM',
+    eventId: 28,
+    scheduleId: 31,
+    className: 'ONE_DAY_REGULAR',
+    price: 19000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+  },
+  {
+    name: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima_CATEGORY_1',
+    eventId: 28,
+    scheduleId: 31,
+    className: 'ONE_DAY_REGULAR',
+    price: 11000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Nagoya_Grampus_vs_Sanfrecce_Hiroshima'
+  },
+  {
+    name: 'Sagan_Tosu_vs_Vegalta_Sendai_VIP',
+    eventId: 29,
+    scheduleId: 32,
+    className: 'ONE_DAY_REGULAR',
+    price: 25000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+  },
+  {
+    name: 'Sagan_Tosu_vs_Vegalta_Sendai_PREMIUM',
+    eventId: 29,
+    scheduleId: 32,
+    className: 'ONE_DAY_REGULAR',
+    price: 18000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+  },
+  {
+    name: 'Sagan_Tosu_vs_Vegalta_Sendai_CATEGORY_1',
+    eventId: 29,
+    scheduleId: 32,
+    className: 'ONE_DAY_REGULAR',
+    price: 10000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Sagan_Tosu_vs_Vegalta_Sendai'
+  },
+  {
+    name: 'Celestial_Guardians_VIP',
+    eventId: 30,
+    scheduleId: 33,
+    className: 'ONE_DAY_REGULAR',
+    price: 15000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Celestial_Guardians'
+  },
+  {
+    name: 'Celestial_Guardians_GENERAL',
+    eventId: 30,
+    scheduleId: 33,
+    className: 'ONE_DAY_REGULAR',
+    price: 7500,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Celestial_Guardians'
+  },
+  {
+    name: 'Mysteries_of_the_Samurai_VIP',
+    eventId: 31,
+    scheduleId: 34,
+    className: 'ONE_DAY_REGULAR',
+    price: 20000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Mysteries_of_the_Samurai'
+  },
+  {
+    name: 'Mysteries_of_the_Samurai_PREMIUM',
+    eventId: 31,
+    scheduleId: 34,
+    className: 'ONE_DAY_REGULAR',
+    price: 15000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Mysteries_of_the_Samurai'
+  },
+  {
+    name: 'Mysteries_of_the_Samurai_CATEGORY_1',
+    eventId: 31,
+    scheduleId: 34,
+    className: 'ONE_DAY_REGULAR',
+    price: 10000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'Mysteries_of_the_Samurai'
+  },
+  {
+    name: 'The_Enchanted_Forest_VIP',
+    eventId: 32,
+    scheduleId: 35,
+    className: 'ONE_DAY_REGULAR',
+    price: 18000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'The_Enchanted_Forest'
+  },
+  {
+    name: 'The_Enchanted_Forest_PREMIUM',
+    eventId: 32,
+    scheduleId: 35,
+    className: 'ONE_DAY_REGULAR',
+    price: 13000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'The_Enchanted_Forest'
+  },
+  {
+    name: 'The_Enchanted_Forest_CATEGORY_1',
+    eventId: 32,
+    scheduleId: 35,
+    className: 'ONE_DAY_REGULAR',
+    price: 9000,
+    type: 'DIGITAL',
+    totalQty: 200,
+    qty: 200,
+    details: 'The_Enchanted_Forest'
+  },
 ];
 
 const eventPictures = [
@@ -1210,6 +1934,70 @@ const eventPictures = [
   {
     eventId: 17,
     link: '/images/one ok rock small.png',
+  },
+  {
+    eventId: 18,
+    link: '/images/one republic small.jpeg',
+  },
+  {
+    eventId: 18,
+    link: '/images/one republic landscape.jpg',
+  },
+  {
+    eventId: 19,
+    link: '/images/Shonan Bellmare vs Yokohama FC small.png',
+  },
+  {
+    eventId: 20,
+    link: '/images/Vissel Kobe vs Urawa Red Diamonds small.jpg',
+  },
+  {
+    eventId: 21,
+    link: '/images/Kawasaki Frontale vs FC Tokyo small.jpg',
+  },
+  {
+    eventId: 22,
+    link: '/images/Mystic Warriors of the Dawn small.jpg',
+  },
+  {
+    eventId: 23,
+    link: '/images/Guardians of the Infinite Realm small.jpg',
+  },
+  {
+    eventId: 24,
+    link: '/images/Journey Through Time small.jpg',
+  },
+  {
+    eventId: 25,
+    link: '/images/Samurai Saga small.jpg',
+  },
+  {
+    eventId: 26,
+    link: '/images/Echoes of Eternity small.jpg',
+  },
+  {
+    eventId: 27,
+    link: '/images/Harmony of the Spheres small.jpg',
+  },
+  {
+    eventId: 28,
+    link: '/images/Nagoya Grampus vs Sanfrecce Hiroshima small.jpg',
+  },
+  {
+    eventId: 29,
+    link: '/images/Sagan Tosu vs Vegalta Sendai small.jpg',
+  },
+  {
+    eventId: 30,
+    link: '/images/Celestial Guardian small.jpg',
+  },
+  {
+    eventId: 31,
+    link: '/images/Mysteries of the Samurai small.jpg',
+  },
+  {
+    eventId: 32,
+    link: '/images/The Enchanted Forest small.jpg',
   },
 ];
 
