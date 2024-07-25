@@ -5,7 +5,6 @@ import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '@/redux/slices/auth.slice';
 import { axiosInstance } from '@/utils/axiosInstances';
-import { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
 interface Props {
@@ -28,15 +27,11 @@ const AuthProvider: FC<Props> = ({ children }) => {
       });
     },
     onSuccess: (response) => {
+      toast.success('Login Successful')
       dispatch(setAuth(response.data.data));
     },
     onError: (error) => {
-        if (error instanceof AxiosError) {
-          if (error.response?.status === 401) {
-            localStorage.removeItem('tkn');
-            console.log('Removed token due to 401 Unauthorized');
-          }
-        }
+      toast.error('Oops something went wrong!');
       console.log(error);
     },
   });

@@ -13,11 +13,11 @@ export const keepAuthUserService = async ({ userId }: IUser) => {
   });
 
   if (!user) {
-    throw { message: 'Employee is not found', status: 400 };
+    throw { message: 'User is not found', status: 400 };
   }
 
   if (!user.verified) {
-    throw { message: 'Employee is not yet verified', status: 400 };
+    throw { message: 'User is not yet verified', status: 400 };
   }
   return {
     user,

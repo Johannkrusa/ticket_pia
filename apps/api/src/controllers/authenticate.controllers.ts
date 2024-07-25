@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { createToken } from '../helpers/createToken.helper';
 import { authenticateUserService } from '@/services/authenticate/authenticateUser.service';
 import { keepAuthUserService } from '@/services/authenticate/keepAuthUser.service';
-
+import { formatToCamelCase } from '@/helpers/formatData.helper';
 interface IRequest extends Request {
   payload?: any;
 }
@@ -48,6 +48,7 @@ export const keepAuth = async (
 ) => {
   try {
     const { userId } = req.payload;
+
     const user = await keepAuthUserService({userId});
 
     res.send({
@@ -58,6 +59,12 @@ export const keepAuth = async (
         firstName: user.user.firstName,
         lastName: user.user.lastName,
         email: user.user.email,
+        roleId: user.user.roleId,
+        verified: user.user.verified,
+        organizer: {
+          name: user.user.organizer?.name,
+          email: user.user.organizer?.email
+        }
       },
     });
   } catch (error) {

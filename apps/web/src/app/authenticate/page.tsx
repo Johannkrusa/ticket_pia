@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
 
-import { usePostAuthLogin } from '@/features/authenticate/auth.usePostAuth';
+import { usePostAuthHooks } from '@/features/authenticate/hooks/usePostAuth.hooks';
 import CustomErrorMessageComponent from '@/components/CustomErrorMessage';
 
 export default function AuthPage() {
@@ -17,9 +17,8 @@ export default function AuthPage() {
     setShowPassword((prevState) => !prevState);
   };
 
-  const {mutationAuth, isPending} = usePostAuthLogin()
+  const {mutationAuthLogin, isPending} = usePostAuthHooks()
 
-  usePostAuthLogin();
 
   const initialValues = {
     email: '',
@@ -39,7 +38,7 @@ export default function AuthPage() {
           initialValues={initialValues}
           validationSchema={authSchema}
           onSubmit={(values) => {
-            mutationAuth({email: values.email, password: values.password, keep_login: values.keep_login})
+            mutationAuthLogin({email: values.email, password: values.password, keep_login: values.keep_login})
           }}
         >
           {({ isValid }) => (

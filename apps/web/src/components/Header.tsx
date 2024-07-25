@@ -17,9 +17,9 @@ export const Header = () => {
 
   return (
     <>
-      <div className="bg-gray-500 w-full h-[40px] flex items-center">
+      <div className="navbar bg-gray-500 w-full h-[40px] flex items-center">
         <div className="text-white w-[400px] h-full flex items-center text-[13px] px-[20px]">
-          If you're a Platinum user, log in to get your Platinum Pass 
+          If you`re a Platinum user, log in to get your Platinum Pass 
         </div>
       </div>
 

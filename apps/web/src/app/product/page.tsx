@@ -18,7 +18,7 @@ export default function ProductPage(){
         <>
             <div className="bg-blue-500 w-full h-full flex justify-between lg:px-[300px] py-[20px]">
                 <div className="text-white font-bold text-[30px]">
-                    "WRESTLE PETER PAN 2024 7/21"
+                    WRESTLE PETER PAN 2024 7/21
                 </div>
                 <div className="bg-white text-green-500 rounded flex items-center justify-center px-[10px]">
                     In Progress

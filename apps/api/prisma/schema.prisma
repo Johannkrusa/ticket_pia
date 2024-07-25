@@ -69,7 +69,7 @@ model Region {
 model Organizer {
   userId      String @id
   name        String
-  email       String
+  email       String @unique
   phoneNumber String
 
   user  User    @relation(fields: [userId], references: [uid])
@@ -308,7 +308,7 @@ model Role {
 
   User User[]
 
-  @@map("rolas")
+  @@map("roles")
 }
 
 enum TicketType {
