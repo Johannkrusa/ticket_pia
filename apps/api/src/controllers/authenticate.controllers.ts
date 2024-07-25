@@ -3,9 +3,10 @@ import { createToken } from '../helpers/createToken.helper';
 import { authenticateUserService } from '@/services/authenticate/authenticateUser.service';
 import { keepAuthUserService } from '@/services/authenticate/keepAuthUser.service';
 import { formatToCamelCase } from '@/helpers/formatData.helper';
-interface IRequest extends Request {
-  payload?: any;
-}
+import { IRequest } from '@/types/types';
+import fs from 'fs';
+import { prisma } from '@/connections/prisma.connections';
+
 
 export const authenticateUser = async (
   req: Request,
@@ -72,11 +73,11 @@ export const keepAuth = async (
   }
 };
 
-export const emailVerification = async (
-  req: IRequest,
-  res: Response,
-  next: NextFunction,
-) => {
+// export const emailVerification = async (
+//   req: IRequest,
+//   res: Response,
+//   next: NextFunction,
+// ) => {
 //   try {
 //     const { userId } = req.payload;
 //     const { currentPassword, newPassword } = req.body;
@@ -93,4 +94,6 @@ export const emailVerification = async (
 //   } catch (error) {
 //     next(error);
 //   }
-};
+// };
+
+

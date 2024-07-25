@@ -6,7 +6,7 @@
     z-index: 1000;
 }
 
-/* .custom-error-message {
+.custom-error-message {
     position: relative; 
     bottom: 110px;
     left: 50%;
@@ -33,7 +33,7 @@
 
 .custom-error-message:hover {
     cursor: pointer;
-} */
+}
 
 
 .ticket-gradient-blue {

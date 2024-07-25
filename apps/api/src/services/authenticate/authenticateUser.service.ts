@@ -1,5 +1,5 @@
 import { prisma } from "@/connections/prisma.connections";
-import { IUser } from "./types";
+import { IUser } from "@/types/types";
 import { comparePassword } from "@/helpers/hashPassword.helper";
 
 export const authenticateUserService = async ({

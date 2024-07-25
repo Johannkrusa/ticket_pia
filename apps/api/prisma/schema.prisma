@@ -13,7 +13,7 @@ model User {
   lastName          String   @db.VarChar(50)
   gender            String
   birthDate         DateTime
-  phoneNumber       String?  @db.VarChar(16)
+  phoneNumber       String  @db.VarChar(16)
   email             String   @db.VarChar(50)
   password          String
   verified          Boolean  @default(false)
@@ -75,7 +75,7 @@ model Organizer {
   user  User    @relation(fields: [userId], references: [uid])
   event Event[]
 
-  @@map("organizers")
+  @@map("organizers") 
 }
 
 model Event {

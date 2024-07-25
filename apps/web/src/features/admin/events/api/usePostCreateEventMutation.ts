@@ -6,20 +6,21 @@ import { useRouter } from 'next/navigation';
 export const usePostCreateEventMutation = () => {
   const router = useRouter();
   const { mutate: mutationCreateEvent, isPending } = useMutation({
-    mutationFn: async ({ formData }: any) => {
+    mutationFn: async ({ fd }: any) => {
       const token = axiosInstance.interceptors.request;
 
-      console.log(formData);
+      console.log({fd});
 
-      return await axiosInstance.post('/events/create', formData, {
+      return await axiosInstance.post('/events', fd, {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
         },
       });
     },
     onSuccess: () => {
       toast.success('Event creation successful');
-      router.push('/');
+      router.push('/home');
     },
     onError: (error: any) => {
       const errorMessage =
@@ -33,3 +34,4 @@ export const usePostCreateEventMutation = () => {
     isPending,
   };
 };
+
