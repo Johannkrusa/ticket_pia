@@ -49,7 +49,7 @@ export const registerOrganizerService = async ({
 
     await transaction.user.update({
       where: { uid: existingVerifiedUser.uid },
-      data: { roleId: 2 },
+      data: { roleId: 1 },
     });
 
     return createdOrganizer;

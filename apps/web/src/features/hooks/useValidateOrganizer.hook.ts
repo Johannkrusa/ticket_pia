@@ -13,7 +13,7 @@ const useValidateOrganizer = ({ roleId, verified, authLoaded }: IValidateOrganiz
   useEffect(() => {
     // Only perform the redirect if the auth data is loaded
     if (authLoaded) {
-      if (!verified || roleId !== 1) {
+      if (!verified || roleId !== 2) {
         router.push('/home');
       }
     }

@@ -13,7 +13,8 @@ export const createEvents = async (
     const { userId, roleId } = req.payload;
     const { body, files } = req;
 
-    if (roleId !==1) {
+    if (roleId !==2) {
+      console.log(roleId)
       return next({ message: 'Unauthorized organizer only', status: 401 });
     }
 
