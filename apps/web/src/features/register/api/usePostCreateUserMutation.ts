@@ -35,7 +35,8 @@ export const usePostCreateUserMutation = () => {
     },
     onSuccess: (response) => {
       toast.success('Registration successful');
-      router.push('/')
+      const token = response.data.data.token;
+      router.push(`/authenticate/verify?token=${token}`);
     },
     onError: (error: any) => {
       const errorMessage = error.response?.data?.message || 'Registration failed';

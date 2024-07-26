@@ -12,8 +12,6 @@ export const registerOrganizerService = async ({
     include: { organizer: true },
   });
 
-  console.log("hello")
-
   if (!existingVerifiedUser) {
     throw {
       message: 'Cannot find existing verified user with the provided email address',
@@ -38,8 +36,6 @@ export const registerOrganizerService = async ({
       status: 409,
     };
   }
-
-  console.log("hello")
 
   const newOrganizer = await prisma.$transaction(async (transaction) => {
     const createdOrganizer = await transaction.organizer.create({

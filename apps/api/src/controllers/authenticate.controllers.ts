@@ -2,11 +2,9 @@ import { NextFunction, Request, Response } from 'express';
 import { createToken } from '../helpers/createToken.helper';
 import { authenticateUserService } from '@/services/authenticate/authenticateUser.service';
 import { keepAuthUserService } from '@/services/authenticate/keepAuthUser.service';
-import { formatToCamelCase } from '@/helpers/formatData.helper';
 import { IRequest } from '@/types/types';
-import fs from 'fs';
+import { sendEmailVerificationService } from '@/services/authenticate/sendVerificationEmail.service';
 import { prisma } from '@/connections/prisma.connections';
-
 
 export const authenticateUser = async (
   req: Request,
@@ -16,11 +14,11 @@ export const authenticateUser = async (
   try {
     const { email, password } = req.body;
 
-    const {user} = await authenticateUserService({ email, password });
+    const { user } = await authenticateUserService({ email, password });
 
     const token = createToken({
       userId: user.uid,
-      roleId: user.roleId
+      roleId: user.roleId,
     });
 
     res.send({
@@ -32,9 +30,9 @@ export const authenticateUser = async (
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        organizer:{
-            name: user.organizer?.name,
-        } ,
+        organizer: {
+          name: user.organizer?.name,
+        },
       },
     });
   } catch (error) {
@@ -50,7 +48,7 @@ export const keepAuth = async (
   try {
     const { userId } = req.payload;
 
-    const user = await keepAuthUserService({userId});
+    const user = await keepAuthUserService({ userId });
 
     res.send({
       error: false,
@@ -64,8 +62,8 @@ export const keepAuth = async (
         verified: user.user.verified,
         organizer: {
           name: user.user.organizer?.name,
-          email: user.user.organizer?.email
-        }
+          email: user.user.organizer?.email,
+        },
       },
     });
   } catch (error) {
@@ -73,27 +71,55 @@ export const keepAuth = async (
   }
 };
 
-// export const emailVerification = async (
-//   req: IRequest,
-//   res: Response,
-//   next: NextFunction,
-// ) => {
-//   try {
-//     const { userId } = req.payload;
-//     const { currentPassword, newPassword } = req.body;
+export const sendEmailVerification = async (
+  req: IRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { userId } = req.payload;
 
-//     await emailVerificationService({
-//       userId,
-//       currentPassword,
-//       newPassword,
-//     });
+    const user = await prisma.user.findFirst({
+      where: {
+        uid: userId,
+      },
+    });
 
-//     res.status(200).send({
-//       message: 'Email successfully verified',
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
+    if (!user) {
+      throw { message: 'User not found', status: 404 };
+    }
 
+    await sendEmailVerificationService({
+      userId: user.uid,
+      roleId: user.roleId,
+      userEmail: user.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
+export const emailVerification = async (
+  req: IRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { userId } = req.payload;
+
+    await prisma.user.update({
+      where: {
+        uid: userId,
+      },
+      data: {
+        verified: true,
+      },
+    });
+
+    res.status(200).send({
+      message: 'Email successfully verified',
+    });
+  } catch (error) {
+    next(error);
+  }
+};
