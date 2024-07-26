@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
 import { IRequest, ITicket, ISchedule, IEventRequest } from '@/types/types';
 import * as fs from 'fs';
-import { prisma, TicketType } from '@/connections/prisma.connections';
+import { prisma} from '@/connections/prisma.connections';
 import { string } from 'yup';
 
 export const createEvents = async (
@@ -137,7 +137,7 @@ export const createEvents = async (
           scheduleId: createdSchedules[scheduleIndex].id,
           className: 'REGULAR',
           price: ticket.ticket_price,
-          type: TicketType.DIGITAL,
+          type: 'DIGITAL',
           totalQty: ticket.ticket_qty,
           qty: ticket.ticket_qty,
         }));

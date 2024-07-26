@@ -1,6 +1,5 @@
 import { prisma } from '@/connections/prisma.connections';
 import { IRegisterOrganizer } from '@/types/types';
-import { Transaction } from '@prisma/client';
 
 export const registerOrganizerService = async ({
   email,
