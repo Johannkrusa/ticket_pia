@@ -657,7 +657,7 @@ export default function CreateEventPage() {
                               >
                                 {({ push, remove }) => (
                                   <>
-                                    {ticket.schedule_indices.map(
+                                    {(ticket.schedule_indices || []).map(
                                       (scheduleIndex, index) => (
                                         <div
                                           key={index}
@@ -672,7 +672,7 @@ export default function CreateEventPage() {
                                               value=""
                                               label="Select a schedule"
                                             />
-                                            {values.schedules.map(
+                                            {(values.schedules || []).map(
                                               (schedule, i) => (
                                                 <option key={i} value={i}>
                                                   Schedule {i + 1} (
@@ -794,7 +794,7 @@ export default function CreateEventPage() {
                           alt="Event Preview"
                           layout="intrinsic"
                           width={500}
-                          height={500} 
+                          height={500}
                           className="max-w-full h-auto"
                         />
                       </div>
@@ -929,7 +929,7 @@ export default function CreateEventPage() {
                         ? 'Invalid Input'
                         : 'Register'}
                   </button>
-                  <button type="submit">submit2</button>
+
                 </div>
               </Form>
             );
