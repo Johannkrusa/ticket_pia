@@ -220,7 +220,7 @@ export default function RegisterOrganizerPage() {
                         htmlFor="email"
                         className="text-md sm:text-xl  font-medium text-gray-700"
                       >
-                        Organizer Email
+                        ORGANIZER EMAIL
                       </label>
                       <span className="text-md sm:text-xl  font-medium text-red-500 ml-2">
                         *

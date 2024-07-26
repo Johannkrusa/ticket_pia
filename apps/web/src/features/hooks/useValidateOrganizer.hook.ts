@@ -16,9 +16,7 @@ const useValidateOrganizer = ({ roleId, verified, authLoaded }: IValidateOrganiz
       if (!verified || roleId !== 1) {
         router.push('/home');
       }
-    }else(
-      router.push('/home')
-    )
+    }
   }, [roleId, verified, authLoaded, router]);
 };
 

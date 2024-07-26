@@ -52,27 +52,27 @@ export const registerUser = async (
       });
     } catch (emailError) {
 
-      const existingReferal = await prisma.referral.findFirst({
-        where:{
-          customerId: user.uid
-        }
-      })
+      // const existingReferal = await prisma.referral.findFirst({
+      //   where:{
+      //     customerId: user.uid
+      //   }
+      // })
 
-      await prisma.referral.deleteMany({
-        where:{
-          customerId: user.uid
-        }
-      })
+      // await prisma.referral.deleteMany({
+      //   where:{
+      //     customerId: user.uid
+      //   }
+      // })
 
-      await prisma.coupon.delete({
-        where:{
-          id: existingReferal?.couponId
-        }
-      })
+      // await prisma.coupon.delete({
+      //   where:{
+      //     id: existingReferal?.couponId
+      //   }
+      // })
 
-      await prisma.user.delete({
-        where: { uid: user.uid },
-      });
+      // await prisma.user.delete({
+      //   where: { uid: user.uid },
+      // });
 
       throw new Error('Cannot send email');
     }
