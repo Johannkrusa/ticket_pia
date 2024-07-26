@@ -55,7 +55,7 @@ export const createEvents = async (
     const mainPicture = (files as any).event_main_picture?.[0];
     const otherPictures = (files as any).event_other_pictures;
 
-    const createdEvent = await prisma.$transaction(async (transaction) => {
+    const createdEvent = await prisma.$transaction(async (transaction: any) => {
       const createdLocation = await transaction.location.create({
         data: {
           venue: event.venue_name,

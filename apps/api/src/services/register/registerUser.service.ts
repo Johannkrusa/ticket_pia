@@ -52,7 +52,7 @@ export const registerUserService = async ({
   }
 
   // Start transaction
-  const [newUser, referralCode] = await prisma.$transaction(async (transaction) => {
+  const [newUser, referralCode] = await prisma.$transaction(async (transaction: any) => {
     // Generate a unique referral code
     let uniqueReferralCode: string = '';
     let isUnique = false;
