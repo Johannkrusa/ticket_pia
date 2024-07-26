@@ -44,11 +44,6 @@ export default function RegisterUserPage() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <div className="flex flex-col w-full max-w-5xl p-8">
         {/* placeholder  */}
-        <img
-          src="https://cdn.discordapp.com/attachments/1252607381305692190/1264272085002489937/image.png?ex=669d44a2&is=669bf322&hm=431db8dbf778b30c28a483c3820822636b4071546e6eee304c6992a04f335cc5&"
-          alt=""
-          className="mb-20"
-        />
         <h2 className="text-3xl font-bold mb-20 text-center">
           REGISTER AS A NEW USER
         </h2>

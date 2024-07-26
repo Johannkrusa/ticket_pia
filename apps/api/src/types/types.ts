@@ -92,3 +92,13 @@ export interface IEventRequest extends Request {
     result?: string;
   };
 }
+export interface ISendEmailVerification {
+  userId: string;
+  roleId: number;
+  userEmail: string;
+}
+
+export interface ITokenPayload {
+  userId: string;
+  roleId?: number;
+}

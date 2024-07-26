@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Field, Form, Formik, FieldArray } from 'formik';
 import React from 'react';
 import CustomErrorMessageComponent from '@/components/CustomErrorMessage';
@@ -89,11 +90,6 @@ export default function CreateEventPage() {
     <div className="flex  items-center justify-center min-h-screen bg-white">
       <div className="flex flex-col w-full max-w-5xl p-8">
         {/* placeholder  */}
-        <img
-          src="https://cdn.discordapp.com/attachments/1252607381305692190/1264272085002489937/image.png?ex=669d44a2&is=669bf322&hm=431db8dbf778b30c28a483c3820822636b4071546e6eee304c6992a04f335cc5&"
-          alt=""
-          className="mb-8"
-        />
         <h2 className="text-3xl font-bold mb-8 text-center">
           REGISTER NEW EVENT
         </h2>
@@ -793,9 +789,12 @@ export default function CreateEventPage() {
                     </div>
                     {imagePreview && (
                       <div className="mt-4">
-                        <img
+                        <Image
                           src={imagePreview}
                           alt="Event Preview"
+                          layout="intrinsic"
+                          width={500}
+                          height={500} 
                           className="max-w-full h-auto"
                         />
                       </div>

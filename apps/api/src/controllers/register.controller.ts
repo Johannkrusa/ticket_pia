@@ -1,6 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import { registerUserService } from '@/services/register/registerUser.service';
 import { registerOrganizerService } from '@/services/register/registerOrganizer.service';
+import { createEmailVerifyPageToken, createToken } from '@/helpers/createToken.helper';
+import { sendEmailVerificationService } from '@/services/authenticate/sendVerificationEmail.service';
+import { prisma } from '@/connections/prisma.connections';
 
 export const registerUser = async (
   req: Request,
@@ -30,13 +33,49 @@ export const registerUser = async (
       email_notification,
     });
 
-    res.send({
-      error: false,
-      message: 'Register User Successful',
-      data: {
-        user,
-      },
-    });
+    const token = createEmailVerifyPageToken({userId: user.uid})
+
+    try {
+      await sendEmailVerificationService({
+        userId: user.uid,
+        roleId: user.roleId,
+        userEmail: user.email,
+      });
+
+      res.send({
+        error: false,
+        message: 'Register User Successful',
+        data: {
+          user,
+          token,
+        },
+      });
+    } catch (emailError) {
+
+      const existingReferal = await prisma.referral.findFirst({
+        where:{
+          customerId: user.uid
+        }
+      })
+
+      await prisma.referral.deleteMany({
+        where:{
+          customerId: user.uid
+        }
+      })
+
+      await prisma.coupon.delete({
+        where:{
+          id: existingReferal?.couponId
+        }
+      })
+
+      await prisma.user.delete({
+        where: { uid: user.uid },
+      });
+
+      throw new Error('Cannot send email');
+    }
   } catch (error) {
     next(error);
   }
@@ -57,8 +96,8 @@ export const registerOrganizer = async (
       phone_number,
     });
 
-    if(!newOrganizer){
-      throw({message:'Register organizer error', status:409})
+    if (!newOrganizer) {
+      throw { message: 'Register organizer error', status: 409 };
     }
 
     res.send({
@@ -71,4 +110,4 @@ export const registerOrganizer = async (
   } catch (error) {
     next(error);
   }
-}; 
+};
